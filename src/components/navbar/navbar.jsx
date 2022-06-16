@@ -6,15 +6,22 @@ import {
 } from '../../assets/fluent-icons'
 import useStore from '../../store'
 import Input from '../input/input'
+import { useLocation } from 'react-router-dom'
 
 function Navbar() {
-  const { isDark, toggleDarkMode } = useStore(state => state)
+  const isDark = useStore(state => state.isDark)
+  const toggleDarkMode = useStore(state => state.toggleDarkMode)
+  const { pathname } = useLocation()
 
   return (
     <div className='navbar'>
       <nav className='header'>
-        {isDark ? <DarkLogo className='logo'/> : <LightLogo className='logo'/>}
-        <Input/>
+        {
+          isDark || pathname === '/' 
+          ? <DarkLogo className='logo'/> 
+          : <LightLogo className='logo'/>
+        }
+        <Input overlay={pathname === '/'}/>
       </nav>
       <div className='links container'>
         <div className='link active'>

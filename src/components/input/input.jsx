@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { SearchIcon } from '../../assets/fluent-icons'
 import './input.scss'
 
-function Input() {
+function Input({ overlay }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [viewInput, setViewInput] = useState(false)
   const inputRef = useRef()
@@ -30,7 +30,10 @@ function Input() {
         ref={inputRef}
         onBlur={() => setViewInput(false)} 
       />}
-      <SearchIcon onClick={() => setViewInput(prev => !prev)}/>
+      <SearchIcon 
+        style={{ color: overlay && 'var(--text_100)'}}
+        onClick={() => setViewInput(prev => !prev)}
+      />
     </form>
   )
 }

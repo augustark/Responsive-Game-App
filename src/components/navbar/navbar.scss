@@ -1,7 +1,12 @@
 .navbar {
-  padding: 2.125em;
+  position: relative;
+  z-index: 2;
 
   & .header {
+    position: absolute;
+    top: 2.125rem;
+    right: 2.125rem;
+    left: 2.125rem;
     display: flex;
     justify-content: space-between;
     gap: 1.125em;
