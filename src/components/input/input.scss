@@ -1,0 +1,39 @@
+.input-field {
+  display: flex;
+  align-items: center;
+  transition: all 250ms ease;
+
+  &.showed {
+    width: 60%;
+    padding: 0 0.8em;
+    background: var(--layer_200);
+    border-radius: 6px;
+  }
+
+  & input {
+    width: 100%;
+    background: none;
+    border: none;
+    font-family: inherit;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  & svg {
+    width: 20px;
+  }
+}
+
+.dark .input-field {
+  &.showed { background: var(--layer_400); }
+  & svg { color: var(--text_100); }
+  & input {
+    color: var(--text_100);
+    &::placeholder { 
+      color: var(--text_100);
+      opacity: 0.5; 
+    }
+  }
+}
