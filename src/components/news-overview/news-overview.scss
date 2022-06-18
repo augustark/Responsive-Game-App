@@ -1,0 +1,40 @@
+.news-overview {
+  & .news-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 2.125rem;
+
+    & h1 { font-size: 1.125rem; }
+    & span { 
+      font-size: 0.625rem; 
+      color: var(--text_200);
+    }
+  }
+
+  & .keen-slider > .keen-slider__slide {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+
+    & img {
+      border-radius: 3px;
+    }
+    
+    & h3 {
+      font-size: 0.875rem;
+      width: 100%;
+      margin: 0;
+    }
+
+    & p {
+      font-size: 0.625rem;
+      color: var(--text_200);
+      margin: 0;
+    }
+  }
+}
+
+.dark .news-overview {
+  color: var(--text_100);
+}
