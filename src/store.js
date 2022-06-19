@@ -1,7 +1,7 @@
 import create from "zustand";
 
 const useStore = create((set) => ({
-  isDark: true,
+  isDark: false,
   navOverlay: false,
   toggleDarkMode: () => 
     set((state) => ({isDark: !state.isDark})),

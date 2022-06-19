@@ -27,8 +27,13 @@
 
   & svg {
     width: 20px;
+    color: var(--text_400);
+  }
+
+  & svg.overlay {
     color: var(--text_100);
   }
+
 }
 
 .dark .input-field {

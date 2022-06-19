@@ -1,7 +1,8 @@
 import useStore from "./store";
-import { GameDetails, Home } from './pages'
+import { GameDetails, Home, News } from './pages'
 import { Navbar } from "./components";
 import './App.scss'
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const isDark = useStore(state => state.isDark)
@@ -9,8 +10,11 @@ function App() {
   return (
     <div className={isDark ? 'app dark' : 'app'}>
       <Navbar/>
-      {/* <Home/> */}
-      <GameDetails/>
+      <Routes>
+        <Route index element={<Home/>}/>
+        <Route path='/news' element={<News/>}/>
+        <Route path='/games/:gameid' element={<GameDetails/>}/>
+      </Routes>
     </div>
   );
 }

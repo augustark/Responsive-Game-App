@@ -30,7 +30,10 @@ function Input({ overlay }) {
         ref={inputRef}
         onBlur={() => setViewInput(false)} 
       />}
-      <SearchIcon onClick={() => setViewInput(prev => !prev)}/>
+      <SearchIcon 
+        className={overlay ? 'overlay' : ''}
+        onClick={() => setViewInput(prev => !prev)}
+      />
     </form>
   )
 }

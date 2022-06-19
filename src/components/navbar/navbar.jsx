@@ -6,36 +6,39 @@ import {
 } from '../../assets/fluent-icons'
 import useStore from '../../store'
 import Input from '../input/input'
-import { useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 function Navbar() {
   const isDark = useStore(state => state.isDark)
   const toggleDarkMode = useStore(state => state.toggleDarkMode)
   const { pathname } = useLocation()
+  let isGameDetails = /[0-9]+$/.test(pathname)
+
+  const activeClassName = ({ isActive }) => isActive ? 'link active' : 'link' 
 
   return (
     <div className='navbar'>
       <nav className='header'>
         {
-          isDark || pathname === '/' 
+          isDark || pathname === '/' || isGameDetails
           ? <DarkLogo className='logo'/> 
           : <LightLogo className='logo'/>
         }
-        <Input overlay={pathname === '/'}/>
+        <Input overlay={pathname === '/' || isGameDetails}/>
       </nav>
       <div className='links container'>
-        <div className='link active'>
+        <NavLink to='/' className={activeClassName}>
           <HomeIcon/>
           <span>Home</span>
-        </div>
-        <div className='link'>
+        </NavLink>
+        <NavLink to='games' className={activeClassName}>
           <GamesIcon/>
           <span>Games</span>
-        </div>
-        <div className='link'>
+        </NavLink>
+        <NavLink to='news' className={activeClassName}>
           <NewsIcon/>
           <span>News</span>
-        </div>
+        </NavLink>
         <div className='link theme' onClick={toggleDarkMode}>
           <SunIcon/>
           <span>Light</span>
