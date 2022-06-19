@@ -1,5 +1,5 @@
 import useStore from "./store";
-import { Home } from './pages'
+import { GameDetails, Home } from './pages'
 import { Navbar } from "./components";
 import './App.scss'
 
@@ -9,7 +9,8 @@ function App() {
   return (
     <div className={isDark ? 'app dark' : 'app'}>
       <Navbar/>
-      <Home/>
+      {/* <Home/> */}
+      <GameDetails/>
     </div>
   );
 }

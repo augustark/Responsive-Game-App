@@ -4,6 +4,7 @@ import { ReactComponent as MoonIcon } from './icons/moon.svg'
 import { ReactComponent as NewsIcon } from './icons/news.svg'
 import { ReactComponent as SearchIcon } from './icons/search.svg'
 import { ReactComponent as SunIcon } from './icons/sun.svg'
+import { ReactComponent as StarIcon } from './icons/star.svg'
 
 import { ReactComponent as LightLogo } from './libs/light-ver.svg'
 import { ReactComponent as DarkLogo } from './libs/dark-ver.svg'
@@ -18,7 +19,8 @@ export {
   SearchIcon,
   SunIcon,
   LightLogo,
-  DarkLogo
+  DarkLogo,
+  StarIcon
 }
 
 export default Placeholder
