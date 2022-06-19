@@ -6,7 +6,7 @@
   &.showed {
     width: 60%;
     padding: 0 0.8em;
-    background: var(--layer_200);
+    background: var(--text_100);
     border-radius: 6px;
   }
 
@@ -19,21 +19,29 @@
     &:focus-visible {
       outline: none;
     }
+
+    &:focus-visible ~ svg {
+      color: var(--text_400);
+    }
   }
 
   & svg {
     width: 20px;
+    color: var(--text_100);
   }
 }
 
 .dark .input-field {
-  &.showed { background: var(--layer_400); }
+  &.showed { background: var(--layer_500); }
   & svg { color: var(--text_100); }
   & input {
     color: var(--text_100);
     &::placeholder { 
       color: var(--text_100);
       opacity: 0.5; 
+    }
+    &:focus-visible ~ svg {
+      color: var(--text_100)
     }
   }
 }

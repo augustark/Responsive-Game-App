@@ -6,4 +6,4 @@ Surface Pro
 
 (Wide Screen Dual Screens)
 Surface Duo
-Galaxy Fold
+Galaxy Fold --- 

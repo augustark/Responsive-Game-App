@@ -14,36 +14,123 @@
 
     & span {
       font-size: 0.625rem;
-      color: var(--text_200);
+      color: var(--text_300);
     }
   }
 
-  & .keen-slider .card {
-    &.bg > img {
-      max-height: 240px;
-    }
+  & .keen-slider {
+    position: relative;
 
-    &.bg h3 {
-      font-size: 0.75rem;
-    }
-
-    & img {
-      max-width: 100%;
-      max-height: 200px;
-      object-fit: cover;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 85%;
+      z-index: 1;
       width: 100%;
       height: 100%;
-      border-radius: 6px;
+      background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0) 0%,
+      var(--text_100) 30%);
+    } 
+
+    &::before {
+      width: unset;
+      right: 88%;
+      left: 0;
+      background: linear-gradient(270deg, 
+      rgba(255, 255, 255, 0) 0%,
+      var(--text_100) 200%);
     }
 
-    & h3 {
-      font-size: 0.625rem;
-      margin: 0;
+    & .card {
+      &.bg > img {
+        max-height: 240px;
+      }
+  
+      &.bg h3 {
+        font-size: 0.75rem;
+      }
+  
+      & img {
+        max-width: 100%;
+        max-height: 180px;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+      }
+  
+      & h3 {
+        font-size: 0.625rem;
+        margin: 0;
+      }
     }
   }
+  
 }
 
 .dark .overview {
   color: var(--text_100);
   font-family: inherit;
+
+  & .overview-header > span {
+    color: var(--text_200);
+  }
+
+  & .keen-slider::after {
+    background: linear-gradient(90deg, 
+    rgba(28, 76, 78, 0) 0%,
+    var(--layer_500) 25%);
+  }
+
+  & .keen-slider::before {
+    background: linear-gradient(270deg, 
+    rgba(28, 76, 78, 0) 0%,
+    var(--layer_500) 200%);
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .overview {
+    & .keen-slider > .card {
+      &.bg > img {
+        max-height: 270px;
+      }
+
+      &.bg h3 {
+        font-size: 0.85rem;
+      }
+  
+      & img {
+        max-height: 200px;
+      }
+
+      & h3 {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .overview {
+    &-header {
+      max-width: 510px;
+      margin: 0 auto;
+    }
+
+    & .keen-slider__slide {
+      &.card > img {
+        max-height: 140px;
+      }
+
+      &.card.bg > img {
+        max-height: 180px;
+      }
+    }
+  }
 }

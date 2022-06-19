@@ -8,7 +8,36 @@
     & h1 { font-size: 1.125rem; }
     & span { 
       font-size: 0.625rem; 
-      color: var(--text_200);
+      color: var(--text_300);
+    }
+  }
+
+  & .keen-slider {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 85%;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0) 0%,
+      var(--text_100) 50%);
+    } 
+
+    &::before {
+      width: unset;
+      right: 85%;
+      left: 0;
+      background: linear-gradient(270deg, 
+      rgba(255, 255, 255, 0) 0%,
+      var(--text_100) 250%);
     }
   }
 
@@ -29,7 +58,7 @@
 
     & p {
       font-size: 0.625rem;
-      color: var(--text_200);
+      color: var(--text_300);
       margin: 0;
     }
   }
@@ -37,4 +66,21 @@
 
 .dark .news-overview {
   color: var(--text_100);
+
+  & .news-header > span,
+  & .keen-slider > .keen-slider__slide > p {
+    color: var(--text_200);
+  }
+
+  & .keen-slider::before {
+    background: linear-gradient(270deg, 
+    rgba(28, 76, 78, 0) 0%,
+    var(--layer_500) 200%);
+  }
+
+  & .keen-slider::after {
+    background: linear-gradient(90deg, 
+    rgba(28, 76, 78, 0) 0%,
+    var(--layer_500) 25%);
+  } 
 }

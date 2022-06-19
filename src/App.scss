@@ -3,6 +3,6 @@
 }
 
 .app.dark {
-  background: linear-gradient(180deg, #000000 23.86%, #0D1321 100%);
+  background: linear-gradient(180deg, var(--text_400) 5%, var(--layer_500) 100%);
   transition: background 1s ease;
 }
