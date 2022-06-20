@@ -1,5 +1,5 @@
 import useStore from "./store";
-import { GameDetails, Home, News } from './pages'
+import { GameDetails, GameDirectory, Home, News } from './pages'
 import { Navbar, NewsPreview, Preview } from "./components";
 import './App.scss'
 import { Route, Routes } from "react-router-dom";
@@ -15,6 +15,11 @@ function App() {
         <Route path='/news' element={<News/>}>
           <Route index element={<NewsPreview/>}/>
           <Route path='upcoming-games' element={<Preview/>}/>
+        </Route>
+        <Route path="/games" element={<GameDirectory/>}>
+          <Route index element={<Preview/>}/>
+          <Route path='coming' element={<Preview/>}/>
+          <Route path='recent' element={<Preview/>}/>
         </Route>
         <Route path='/games/:gameid' element={<GameDetails/>}/>
       </Routes>

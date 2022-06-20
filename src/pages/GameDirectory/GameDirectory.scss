@@ -1,0 +1,125 @@
+.game-directory {
+  padding: 6em 0; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+
+  & .header {
+    padding: 0 1em;
+
+    & h1 {
+      max-height: 100%;
+      height: 70px;
+      width: 100%;
+      position: relative;
+      border-radius: 6px;
+      background-image: radial-gradient(66% 1363.64% at 66% -80.16%, rgba(28, 76, 78, 0.5) 0%, #1C4C4E 100%), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text_100);
+      margin: 0;
+    }
+  }
+
+  & .toggle-content {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+
+    & a {
+      text-decoration: none;
+      color: var(--text_300);
+    }
+    
+    & .active {
+      color: var(--text_400);
+      font-weight: bold;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 2px;
+        top: 125%;
+        left: 0;
+        right: 0;
+        background-color: var(--layer_300);
+      }
+    }
+  }
+
+  & .filters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2.125em;
+    gap: 1em;
+
+    & > button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.625rem;
+      padding: 0.65em 1.25em;
+      border: 2px solid var(--text_300);
+      border-radius: 0.1875rem;
+      background: none;
+      color: var(--text_300);
+
+      &:active,
+      &:hover,
+      &:focus {
+        color: var(--text_300);
+        border-color: var(--text_400);
+      }
+
+      & svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.dark .game-directory {
+  color: var(--text_100);
+
+  & .toggle-content {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+
+    & a {
+      text-decoration: none;
+      color: var(--text_300);
+    }
+
+    & button {
+      &:active,
+      &:focus {
+        color: var(--text_100);
+        border-color: var(--text_200);
+      }
+    }
+    
+    & .active { color: var(--text_100); }
+  }
+
+  & .filters > button {
+    &:active,
+    &:hover,
+    &:focus {
+      color: var(--text_100);
+      border-color: var(--text_100);
+    }
+  }
+}

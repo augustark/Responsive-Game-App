@@ -5,6 +5,13 @@ import { ReactComponent as NewsIcon } from './icons/news.svg'
 import { ReactComponent as SearchIcon } from './icons/search.svg'
 import { ReactComponent as SunIcon } from './icons/sun.svg'
 import { ReactComponent as StarIcon } from './icons/star.svg'
+import { ReactComponent as SortIcon } from './icons/sort.svg'
+import { ReactComponent as FilterIcon } from './icons/filter.svg'
+import { ReactComponent as ChevDownIcon } from './icons/chevron-down.svg'
+import { ReactComponent as ChevUpIcon } from './icons/chevron-up.svg'
+import { ReactComponent as StarHalfIcon } from './icons/star-half.svg'
+import { ReactComponent as TSAscIcon } from './icons/text-sort-asc.svg'
+import { ReactComponent as TSDescIcon } from './icons/text-sort-desc.svg'
 
 import { ReactComponent as LightLogo } from './libs/light-ver.svg'
 import { ReactComponent as DarkLogo } from './libs/dark-ver.svg'
@@ -20,7 +27,14 @@ export {
   SunIcon,
   LightLogo,
   DarkLogo,
-  StarIcon
+  StarIcon,
+  SortIcon,
+  FilterIcon,
+  ChevDownIcon,
+  ChevUpIcon,
+  StarHalfIcon,
+  TSAscIcon,
+  TSDescIcon
 }
 
 export default Placeholder
