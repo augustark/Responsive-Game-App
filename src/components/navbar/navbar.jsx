@@ -12,8 +12,9 @@ function Navbar() {
   const isDark = useStore(state => state.isDark)
   const toggleDarkMode = useStore(state => state.toggleDarkMode)
   const { pathname } = useLocation()
-  let isGameDetails = /[0-9]+$/.test(pathname)
 
+  let isGameDetails = /[0-9]+$/.test(pathname)
+  
   const activeClassName = ({ isActive }) => isActive ? 'link active' : 'link' 
 
   return (

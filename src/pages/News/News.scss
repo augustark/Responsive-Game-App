@@ -1,0 +1,122 @@
+.news {
+  padding: 6em 0;
+  display: flex;
+  flex-direction: column;
+
+  & .toggle-content {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+
+    & a {
+      text-decoration: none;
+      color: var(--text_300);
+    }
+    
+    & .active {
+      color: var(--text_400);
+      font-weight: bold;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 2px;
+        top: 125%;
+        left: 0;
+        right: 0;
+        background-color: var(--layer_300);
+      }
+    }
+  }
+
+  & .slides-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.125em;
+    margin-top: 2em;
+    position: relative;
+
+    & h2 {
+      font-size: 0.875rem;
+      margin: 0;
+    }
+
+    & svg {
+      position: absolute;
+      right: 2.125rem;
+      animation-name: slide-right;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes slide-right {
+      from {
+        right: 3.5em;
+      }
+      to {
+        right: 2.125em;
+      }
+    }
+  }
+  
+  & .keen-slider {
+    & .keen-slider__slide.card {
+      padding: 1em;
+      position: relative;
+
+      & img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0.75rem;
+      }
+
+      & h1 {
+        position: absolute;
+        bottom: 15%;
+        left: 10%;
+        margin: 0;
+        color: var(--text_100);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1em;
+        bottom: 1.2em;
+        right: 1em;
+        left: 1em;
+        border-radius: 0.75rem;
+        background: linear-gradient(201.37deg, rgba(28, 76, 78, 0) 8.18%, rgba(13, 19, 33, 0.5) 85.94%);
+      }
+    }
+  }
+}
+
+.dark .news {
+  color: var(--text_100);
+
+  & .toggle-content .active {
+    color: var(--text_100);
+  }
+
+  & .keen-slider {
+    & .keen-slider__slide.card {
+      padding: 1em;
+      position: relative;
+      
+      & img {
+        box-shadow: 6px 6px 0px #1C4C4E;
+        transition: 1s;
+      }
+    }
+  } 
+}

@@ -21,7 +21,11 @@ function Input({ overlay }) {
 
   return (
     <form 
-      className={`${viewInput ? 'showed' : ''} input-field`}
+      className={`
+        ${viewInput ? 'showed' : ''} 
+        ${!overlay ? 'not' : ''} 
+        input-field
+      `}
       onSubmit={handleSubmit}
     >
       {viewInput && <input 

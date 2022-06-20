@@ -10,6 +10,11 @@
     border-radius: 6px;
   }
 
+  &.showed.not {
+    // border: 1px solid var(--text_400);
+    background-color: var(--text_200);
+  }
+
   & input {
     width: 100%;
     background: none;
