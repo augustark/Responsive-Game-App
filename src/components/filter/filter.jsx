@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FilterIcon } from '../../assets/fluent-icons'
-import useClickOutside from '../custom-hooks/useClickOutside'
+import useClickOutside from '../../utils/custom-hooks/useClickOutside'
 import './filter.scss'
 
 function Filter() {

@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { SearchIcon } from '../../assets/fluent-icons'
 import './input.scss'
 
 function Input({ overlay }) {
-  const [searchTerm, setSearchTerm] = useState('')
   const [viewInput, setViewInput] = useState(false)
   const inputRef = useRef()
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSearchTerm(inputRef.current.value)
+    navigate(`/search?q=${inputRef.current.value}`)
     inputRef.current.value = ''
   }
 

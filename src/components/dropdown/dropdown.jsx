@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { useRef } from 'react'
 import { ChevDownIcon, ChevUpIcon } from '../../assets/fluent-icons'
+import useClickOutside from '../../utils/custom-hooks/useClickOutside'
 import './dropdown.scss'
 
 const sortData = [
@@ -35,23 +34,8 @@ const sortData = [
 ]
 
 function Dropdown() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen, ref] = useClickOutside()
   const [sortBy, setSortBy] = useState('')
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setOpen && setOpen(false)
-      }
-    }
-
-    document.addEventListener('click', handleClickOutside, true)
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-    }
-  }, [])
 
   return (
     <div ref={ref} className='dropdown'>

@@ -1,5 +1,5 @@
 import useStore from "./store";
-import { GameDetails, GameDirectory, Home, News } from './pages'
+import { GameDetails, GameDirectory, Home, News, Search } from './pages'
 import { Navbar, NewsPreview, Preview } from "./components";
 import './App.scss'
 import { Route, Routes } from "react-router-dom";
@@ -22,6 +22,7 @@ function App() {
           <Route path='recent' element={<Preview/>}/>
         </Route>
         <Route path='/games/:gameid' element={<GameDetails/>}/>
+        <Route path='/search' element={<Search/>}/>
       </Routes>
     </div>
   );
