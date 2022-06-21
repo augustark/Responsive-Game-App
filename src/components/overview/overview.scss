@@ -23,6 +23,8 @@
 
   & .keen-slider {
     position: relative;
+    padding: 0 0 1em;
+    align-items: center;
 
     &::before,
     &::after {
@@ -100,7 +102,7 @@
   .overview {
     & .keen-slider > .card {
       &.bg > img {
-        max-height: 270px;
+        max-height: 280px;
       }
 
       &.bg h3 {
@@ -108,7 +110,7 @@
       }
   
       & img {
-        max-height: 200px;
+        max-height: 220px;
       }
 
       & h3 {
@@ -132,6 +134,166 @@
 
       &.card.bg > img {
         max-height: 180px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .overview {
+    & .keen-slider > .card {
+      & img {
+        max-height: 270px;
+      }
+
+      & h3 {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 525px) {
+  .overview {
+    &-header {
+      padding: 1em 3.125rem;
+    }
+
+    & .keen-slider > .card {
+      &.bg > img,
+      & img {
+        max-height: 290px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .overview {
+    &-header {
+      padding: 1em 2.125rem;
+    }
+
+    & .keen-slider {
+      max-width: 90%;
+      margin: 0 auto;
+
+      &::before,
+      &::after {
+        content: '';
+        position: static;
+        bottom: unset;
+        top: unset;
+        right: unset;
+        left: unset;
+        z-index: unset;
+        width: 100%;
+        height: 100%;
+        background: none;
+      } 
+    }
+
+    & .keen-slider > .card {
+      &.bg > img,
+      & img {
+        max-height: 200px !important;
+        min-height: 200px !important;
+      }
+
+      &.bg h3,
+      & h3 {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .overview {
+    max-width: 900px;
+    padding: 0 2.125em;
+    margin: 0 auto;
+
+    &-header {
+      padding: 1em 0;
+    }
+
+    & .keen-slider {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .overview {
+    max-width: 1100px;
+    padding: 0 2.125em;
+    margin: 0 auto;
+
+    &-header {
+      padding: 1em 0;
+  
+      & h1 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+  
+      & span {
+        font-size: 0.8rem;
+      }
+    }
+
+    & .keen-slider {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    & .keen-slider > .card {
+      &.bg > img,
+      & img {
+        max-height: calc(180px - 4rem) !important;
+        min-height: calc(280px - 2rem) !important;
+      }
+
+      &.bg h3,
+      & h3 {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .overview {
+    max-width: 1400px;
+    padding: 0 2.125em;
+    margin: 0 auto;
+
+    &-header {
+      padding: 1em 0;
+  
+      & h1 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    & .keen-slider {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    & .keen-slider > .card {
+      &.bg > img,
+      & img {
+        max-height: calc(280px - 4rem) !important;
+        min-height: calc(380px - 2rem) !important;
+      }
+
+      &.bg h3,
+      & h3 {
+        font-size: 1rem;
       }
     }
   }
