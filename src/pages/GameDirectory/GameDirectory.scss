@@ -60,31 +60,6 @@
     grid-template-columns: repeat(2, 1fr);
     padding: 0 2.125em;
     gap: 1em;
-
-    & > button {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.625rem;
-      padding: 0.65em 1.25em;
-      border: 2px solid var(--text_300);
-      border-radius: 0.1875rem;
-      background: none;
-      color: var(--text_300);
-
-      &:active,
-      &:hover,
-      &:focus {
-        color: var(--text_300);
-        border-color: var(--text_400);
-      }
-
-      & svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
   }
 }
 
@@ -112,14 +87,5 @@
     }
     
     & .active { color: var(--text_100); }
-  }
-
-  & .filters > button {
-    &:active,
-    &:hover,
-    &:focus {
-      color: var(--text_100);
-      border-color: var(--text_100);
-    }
   }
 }

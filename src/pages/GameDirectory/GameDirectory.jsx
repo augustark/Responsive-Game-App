@@ -1,9 +1,7 @@
-import './GameDirectory.scss'
-
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { FilterIcon } from '../../assets/fluent-icons'
-import { Dropdown } from '../../components'
+import { Dropdown, Filter } from '../../components'
+import './GameDirectory.scss'
 
 function GameDirectory() {
   const activeClassName = ({ isActive }) => isActive ? 'active' : ''
@@ -20,7 +18,7 @@ function GameDirectory() {
       </div>
       <div className='filters'>
         <Dropdown/>
-        <button>Filter <FilterIcon/></button>
+        <Filter/>
       </div>
       <Outlet/>
     </div>

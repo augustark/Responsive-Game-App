@@ -26,6 +26,7 @@
       height: 12px;
     }
 
+    &.active,
     &:focus,
     &:active,
     &:hover {
@@ -42,7 +43,15 @@
     top: calc(100% + 0.5em);
     border-radius: 0.1875rem;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1;
+    transform: translateY(-5%);
+    opacity: 0;
+    transition: all 250ms ease;
+
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
     
     &-item {
       width: 100%;

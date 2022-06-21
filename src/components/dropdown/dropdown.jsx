@@ -64,23 +64,21 @@ function Dropdown() {
         </p>
         {open ? <ChevUpIcon/> : <ChevDownIcon/>}
       </button>
-      {open && (
-        <div className='dropdown-menu__list'>
-          {sortData.map((item) => (
-            <button 
-              type='button' 
-              key={item.id}
-              className='dropdown-menu__list-item'
-              onClick={() => {
-                setSortBy(item)
-                setOpen(!open)
-              }}
-            >
-              {item.text || item.value}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className={`dropdown-menu__list ${open ? 'open' : ''}`}>
+        {sortData.map((item) => (
+          <button 
+            type='button' 
+            key={item.id}
+            className='dropdown-menu__list-item'
+            onClick={() => {
+              setSortBy(item)
+              setOpen(!open)
+            }}
+          >
+            {item.text || item.value}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }
