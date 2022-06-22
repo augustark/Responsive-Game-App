@@ -16,6 +16,7 @@ function Slides({ bg }) {
 
   const [refCallback, instanceRef] = useKeenSlider({
     mode: "snap",
+    renderMode: 'performance',
     breakpoints: {
       '(min-width: 300px)': {
         slides: {
@@ -41,6 +42,27 @@ function Slides({ bg }) {
           align: false
         }
       },
+      '(min-width: 700px)': {
+        slides: {
+          origin: 'auto',
+          perView: bg ? 3 : 4,
+          spacing: bg ? 15 : 12
+        }
+      },
+      '(min-width: 800px)': {
+        slides: {
+          origin: 'auto',
+          perView: bg ? 4 : 4,
+          spacing: bg ? 15 : 12
+        }
+      },
+      '(min-width: 1000px)': {
+        slides: {
+          origin: 'auto',
+          perView: 5,
+          spacing: 15
+        }
+      },
     },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel)
@@ -63,16 +85,16 @@ function Slides({ bg }) {
         {slideMap}
       </div>
       {loaded && instanceRef.current && (
-        <>
+        <div className='controls'>
           <ChevLeftIcon 
             onClick={prev} 
             className={currentSlide === 0 ? 'disabled' : ''}
           />
           <ChevRightIcon 
             onClick={next} 
-            className={currentSlide === slideMap.length - 2 ? 'disabled' : ''}
+            className={currentSlide === instanceRef.current.track.details.maxIdx ? 'disabled' : ''}
           />
-        </>
+        </div>
       )}
     </div>
   )

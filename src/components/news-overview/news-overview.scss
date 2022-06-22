@@ -3,12 +3,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5em 2.125rem;
+    padding: 0.5em 1.65em;
 
-    & h1 { font-size: 1.125rem; }
-    & span { 
+    & h1 { 
+      font-size: 1.125rem; 
+    }
+
+    & a { 
       font-size: 0.625rem; 
       color: var(--text_300);
+      text-decoration: none;
+      color: inherit;
     }
   }
 
@@ -37,17 +42,22 @@
       left: 0;
       background: linear-gradient(270deg, 
       rgba(255, 255, 255, 0) 0%,
-      var(--text_100) 250%);
+      var(--text_100) 300%);
     }
   }
+
 
   & .keen-slider > .keen-slider__slide {
     display: flex;
     flex-direction: column;
     gap: 0.3em;
+    min-height: 160px !important;
 
     & img {
       border-radius: 3px;
+      width: 100%;
+      max-height: 170px !important;
+      object-fit: cover;
     }
     
     & h3 {
@@ -75,7 +85,7 @@
   & .keen-slider::before {
     background: linear-gradient(270deg, 
     rgba(28, 76, 78, 0) 0%,
-    var(--layer_500) 200%);
+    var(--layer_500) 150%);
   }
 
   & .keen-slider::after {
@@ -83,4 +93,188 @@
     rgba(28, 76, 78, 0) 0%,
     var(--layer_500) 25%);
   } 
+}
+
+@media screen and (min-width: 420px) {
+  .news-overview {
+    & .news-header {
+      padding: 0.25em 2em;
+      max-width: 680px;
+      margin: 0 auto;
+    }  
+  
+    & .keen-slider > .keen-slider__slide {
+      min-height: 160px !important;
+  
+      & img {
+        max-height: 240px !important;
+      }
+      
+      & h3 {
+        padding: 0 0.5em;
+      }
+  
+      & p {
+        padding: 0 0.5em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .news-overview {
+    & .keen-slider > .keen-slider__slide {
+      min-height: 160px !important;
+      gap: 0.5em;
+  
+      & img {
+        max-height: 240px !important;
+      }
+      
+      & h3 {
+        padding: 0 0.5em;
+      }
+  
+      & p {
+        padding: 0 0.5em;
+      }
+      }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .news-overview {
+    padding: 1em 2.5em;
+    width: 100%;
+    min-width: 700px;
+    max-width: 700px;
+    margin: 0 auto;
+
+    & .news-header {
+      padding: 1em 0;
+      max-width: unset;
+      margin: 0 auto;
+    }  
+
+    & .news-header {
+      & h1 { 
+        font-size: 1.25rem;
+      }
+    }
+
+    & .keen-slider {
+      &::before,
+      &::after {
+        content: none;
+        position: static;
+        bottom: unset;
+        top: unset;
+        right: unset;
+        left: unset;
+        z-index: 1;
+        width: unset;
+        height: unset;
+        background: none;
+      }
+
+      & .keen-slider__slide {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+        min-height: 160px !important;
+    
+        & img {
+          border-radius: 3px;
+          width: 100%;
+          max-height: 170px !important;
+          object-fit: cover;
+        }
+        
+        & h3 {
+          font-size: 0.875rem;
+          width: 100%;
+          margin: 0;
+        }
+    
+        & p {
+          font-size: 0.625rem;
+          color: var(--text_300);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .news-overview {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .news-overview {
+    max-width: 900px;
+
+    & .news-header {
+      & h1 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+  
+      & a {
+        text-decoration: none;
+        font-size: 0.8rem;
+      }
+    }
+
+    & .keen-slider {
+      & .keen-slider__slide {
+        & img {
+          max-height: 240px !important;
+        }
+        
+        & h3 {
+          font-size: 1rem;
+          width: 100%;
+          margin: 0;
+        }
+    
+        & p {
+          font-size: 0.7rem;
+          color: var(--text_300);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .news-overview {
+    max-width: 1100px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .news-overview {
+    max-width: 1300px;
+
+    & .keen-slider {
+      & .keen-slider__slide {
+        gap: 0.6em;
+        & img {
+          max-height: 400px !important;
+        }
+        
+        & h3 {
+          font-size: 1.125rem;
+        }
+    
+        & p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }

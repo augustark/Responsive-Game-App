@@ -1,31 +1,54 @@
 import React from 'react'
 import { useKeenSlider } from 'keen-slider/react'
-import 'keen-slider/keen-slider.min.css'
+import { Link } from 'react-router-dom'
 import './news-overview.scss'
 
 
 function NewsOverview() {
   const [sliderRef] = useKeenSlider({
     mode: "snap",
-    slides: () => [
-      {
-        size: 0.752,
-        spacing: 0.04,
-        origin: 0.09
+    breakpoints: {
+      '(min-width: 300px)': {
+        slides: {
+          origin: 0.07,
+          perView: 1.15,
+          spacing: 15
+        },
+        range: {
+          min: 0,
+          max: 1,
+          align: false
+        }
       },
-      {
-        size: 0.752,
-        spacing: 0.04,
-        origin: 0.16
+      '(min-width: 420px)': {
+        slides: () => [
+          {
+            size: 0.75,
+            spacing: 0.04,
+            origin: 0.065
+          },
+          {
+            size: 0.75,
+            spacing: 0.04,
+            origin: 0.19
+          },
+        ],
       },
-    ],
+      '(min-width: 700px)': {
+        slides: {
+          origin: 'auto',
+          perView: 2,
+          spacing: 25
+        },
+      },
+    }
   })
 
   return (
     <div className='news-overview'>
       <div className='news-header'>
         <h1>Latest News</h1>
-        <span>View All</span>
+        <Link to='/news'>View All</Link>
       </div>
       <div ref={sliderRef} className="keen-slider">
       {Array(2).fill('').map((child, idx) => (

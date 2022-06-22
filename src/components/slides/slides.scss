@@ -13,60 +13,108 @@
     & a {
       text-decoration: none;
       font-size: 0.625rem;
+      color: var(--text_300);
     }
   }
 
-  & > svg { 
-    display: none; 
+  & .controls {
+    display: none;
+    
+    & > svg.disabled {
+      color: var(--text_300);
+    }
   }
+
+  & .keen-slider {
+    height: 100%;
   
-  & > svg.disabled {
-    color: var(--text_300);
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      left: 85%;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0) 0%,
+      var(--text_100) 30%);
+    } 
+  
+    &::before {
+      width: unset;
+      right: 88%;
+      left: 0;
+      background: linear-gradient(270deg, 
+      rgba(255, 255, 255, 0) 0%,
+      var(--text_100) 200%);
+    }
+  
+    & .keen-slider__slide {
+      min-height: 140px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.25em;
+  
+      & img {
+        max-height: 190px;
+        border-radius: 0.1875rem;
+      }
+  
+      & .card-info {
+        & h3 {
+          font-size: 0.5rem;
+          margin: 0;
+        }
+      }
+    }
+  
+    &.bg .keen-slider__slide {
+      min-height: 210px;
+  
+      & img {
+        max-height: 250px;
+      }
+  
+      & .card-info {
+        & h3 {
+          font-size: 0.625rem;
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
-.keen-slider {
-  height: 100%;
+.dark .slides {
+  color: var(--text_100);
+  font-family: inherit;
 
-  & .keen-slider__slide {
-    min-height: 140px !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    & img {
-      max-height: 150px;
-      border-radius: 0.1875rem;
-    }
-
-    & .card-info {
-      & h3 {
-        font-size: 0.5rem;
-        margin: 0;
-      }
-    }
+  &-header > a {
+    color: var(--text_200);
   }
 
-  &.bg .keen-slider__slide {
-    min-height: 210px;
+  & .keen-slider::after {
+    background: linear-gradient(90deg, 
+    rgba(28, 76, 78, 0) 0%,
+    var(--layer_500) 25%);
+  }
 
-    & img {
-      max-height: 210px;
-    }
-
-    & .card-info {
-      & h3 {
-        font-size: 0.625rem;
-        margin: 0;
-      }
-    }
+  & .keen-slider::before {
+    background: linear-gradient(270deg, 
+    rgba(28, 76, 78, 0) 0%,
+    var(--layer_500) 200%);
   }
 }
 
 @media screen and (min-width: 420px) {
   .slides {
     &-header {
-      padding: 1em 2em;
+      padding: 0.7em 2em;
     }
   }
 
@@ -115,6 +163,7 @@
   .keen-slider {
     & .keen-slider__slide {
       min-height: 170px !important;
+      gap: 0.25em;
 
       & img {
         max-height: 170px;
@@ -124,5 +173,133 @@
     &.bg .keen-slider__slide {
       min-height: 210px;
     }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .slides {
+    max-width: 700px;
+    padding: 1em 2.5em;
+    margin: 0 auto;
+    position: relative;
+    
+    &-header {
+      padding: 1em 0;
+      max-width: default;
+    }
+
+    & .controls {
+      position: absolute;
+      top: 17%;
+      bottom: 3%;
+      right: 0%;
+      left: 0%;
+      // width: 100%;
+      // height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // border: 2px solid red;
+      z-index: 1;
+      
+      & > svg.disabled {
+        color: var(--text_300);
+      }
+    }
+
+    & .keen-slider {
+      & .keen-slider__slide {
+        & img {
+          max-height: unset;
+        }
+      }
+    
+      &.bg .keen-slider__slide {
+        min-height: 270px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .slides {
+    max-width: 800px;
+    
+    &-header {
+      max-width: unset;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .slides {
+    min-width: 900px;
+
+    & .controls {
+      right: -1%;
+      left: -1%;
+      
+      & > svg { 
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &-header {
+      & h1 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+  
+      & a {
+        text-decoration: none;
+        font-size: 0.8rem;
+      }
+    }
+
+    & .keen-slider {
+      &.bg .keen-slider__slide,
+      & .keen-slider__slide {
+        & .card-info {
+          & h3 {
+            font-size: 0.6rem;
+          }
+        }
+      }
+    }
+
+    & .keen-slider {
+      &.bg .keen-slider__slide,
+      & .keen-slider__slide {
+        & .card-info {
+          & h3 {
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .slides {
+    min-width: 1100px;
+
+    & .keen-slider {
+      &.bg .keen-slider__slide,
+      & .keen-slider__slide {
+        & .card-info {
+          & h3 {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .slides {
+    min-width: 1300px;
   }
 }
