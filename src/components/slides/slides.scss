@@ -19,6 +19,7 @@
   & > svg { 
     display: none; 
   }
+  
   & > svg.disabled {
     color: var(--text_300);
   }
@@ -63,6 +64,12 @@
 }
 
 @media screen and (min-width: 420px) {
+  .slides {
+    &-header {
+      padding: 1em 2em;
+    }
+  }
+
   .keen-slider {
     & .keen-slider__slide {
       min-height: 165px !important;
@@ -97,6 +104,14 @@
 }
 
 @media screen and (min-width: 520px) {
+  .slides {
+    &-header {
+      padding: 1em 2.5em;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+  }
+
   .keen-slider {
     & .keen-slider__slide {
       min-height: 170px !important;

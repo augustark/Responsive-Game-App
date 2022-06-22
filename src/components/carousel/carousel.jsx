@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-// import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 import { IoLogoYoutube } from 'react-icons/io5'
-import './carousel.scss'
-
 import { useKeenSlider } from 'keen-slider/react'
-import 'keen-slider/keen-slider.min.css'
+import './new-carousel.scss'
+
 
 function Carousel() {
   const dataArr = Array(3).fill('')

@@ -1,0 +1,115 @@
+.carousel-wrapper {
+  & .keen-slider.carousel {
+    & .keen-slider__slide.slide {
+      height: 100vh;
+
+      & > img {
+        min-height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 80% 20%;
+      }
+
+      & .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        position: absolute;
+        bottom: 15%;
+        left: 0;
+        right: 0;
+  
+        & h1 {
+          margin: 0;
+          text-align: center;
+          line-height: 100%;
+          color: var(--text_100);
+          padding: 0 2.125rem;
+          text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.15);
+        }
+  
+        & .buttons {
+          display: flex;
+          gap: 0.625rem;
+  
+          & button {
+            padding: 0.8em 1.125em;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            border: 2px solid #FF0000;
+            border-radius: 0.375rem;
+            background: none;
+            font-size: 0.625rem;
+            font-family: inherit;
+            color: var(--text_100);
+            position: relative;
+            
+            & svg {
+              color: #FF0000;
+              width: 1rem;
+              height: 1rem;
+              position: relative;
+            }
+  
+            &:hover {
+              background: var(--text_100);
+              color: var(--text_400);
+              border-color: var(--text_100);
+            }
+  
+            &:last-child {
+              border-color: var(--text_200);
+              background: var(--layer_500);
+              padding: 0.8em 2em;
+            }
+  
+            &:last-child:hover {
+              color: var(--text_100);
+              background: var(--layer_400);
+            }
+          }
+        }
+
+        & .genres {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0 0.5em;
+          font-size: 0.625rem;
+          color: var(--text_200);
+        }
+      }
+    }
+  }
+  & .dots {
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    position: absolute;
+    bottom: 9.5%;
+    width: 100%;
+
+    & .dot {
+      border: none;
+      width: 2px;
+      height: 2px;
+      background: var(--text_300);
+      border-radius: 50%;
+      margin: 0 3px;
+      padding: 2px;
+      cursor: pointer;
+    }
+    
+    & .dot:focus {
+      outline: none;
+    }
+    
+    & .dot.active {
+      background: var(--text_100);
+    }
+  }
+}
