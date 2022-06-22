@@ -194,12 +194,9 @@
       bottom: 3%;
       right: 0%;
       left: 0%;
-      // width: 100%;
-      // height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      // border: 2px solid red;
       z-index: 1;
       
       & > svg.disabled {
@@ -212,10 +209,40 @@
         & img {
           max-height: unset;
         }
+
+        & .card-info {
+          & h3 {
+            font-size: 0.5rem;
+            margin: 0;
+          }
+        }
       }
     
       &.bg .keen-slider__slide {
         min-height: 270px;
+
+        & img {
+          max-height: unset;
+        }
+      }
+    }
+  
+    & .keen-slider {
+      & .keen-slider__slide {
+        & .card-info {
+          & h3 {
+            font-size: 0.65rem;
+          }
+        }
+      }
+    }
+    & .keen-slider {
+      &.bg .keen-slider__slide {
+        & .card-info {
+          & h3 {
+            font-size: 0.75rem;
+          }
+        }
       }
     }
   }
@@ -254,17 +281,6 @@
       & a {
         text-decoration: none;
         font-size: 0.8rem;
-      }
-    }
-
-    & .keen-slider {
-      &.bg .keen-slider__slide,
-      & .keen-slider__slide {
-        & .card-info {
-          & h3 {
-            font-size: 0.6rem;
-          }
-        }
       }
     }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { IoLogoYoutube } from 'react-icons/io5'
 import { useKeenSlider } from 'keen-slider/react'
+import { StarIcon } from '../../assets/fluent-icons'
 import './new-carousel.scss'
 
 
@@ -27,6 +28,11 @@ function Carousel() {
             <img src='https://i.imgur.com/O7QA1q4.png' alt=''/>
             <div className='info'>
               <h1>Dying Light 2: Stay Human</h1>
+              <div className='ratings'>
+                <p className='rating'><StarIcon/>76%</p>
+                <p>05/2022</p>
+              </div>
+              <p className='description'>Massa consectetur et in eros, egestas lobortis faucibus vitae. Pellentesque adipiscing neque nibh commodo rhoncus nec congue nascetur. Consectetur nec egestas nibh elementum rhoncus ornare semper nisl. Odio ultrices leo sed pharetra, nullam non vitae ac pretium. </p>
               <div className='genres'>
                 <span>Adventure</span>
                 &#8226;
