@@ -97,14 +97,17 @@
         align-items: center;
         justify-content: center;
         font-size: 0.8rem;
-        color: var(--text_200);
+        color: var(--text_300);
         padding: 0.5em;
         cursor: pointer;
 
         & span {
-          color: var(--text_100);
+          color: var(--text_300);
           margin-left: 1em;
+          font-weight: bold;
         }
+
+        &:hover span { color: var(--text_400); }
       }
 
       &-links {
@@ -115,19 +118,40 @@
 
         & > .link {
           text-decoration: none;
-          color: var(--text_200);
+          color: var(--text_300);
           font-size: 0.8rem;
+        }
+
+        & > .active {
+          color: var(--text_400)
+        }
+      } 
+    }
+  
+    & .links.mobile {
+      display: none;
+    }
+  }
+
+  .dark .navbar {
+    & .header {
+      &-theme {
+        color: var(--text_200);
+
+        & span {
+          color: var(--layer_300);
+        }
+      }
+
+      &-links {
+        & > .link {
+          color: var(--text_200);
         }
 
         & > .active {
           color: var(--text_100)
         }
       } 
-      
-    }
-  
-    & .links.mobile {
-      display: none;
     }
   }
 }
@@ -148,7 +172,6 @@
     & .header {
       max-width: calc(1300px - 5rem);
       margin: 0 auto;
-
     }
   }
 }

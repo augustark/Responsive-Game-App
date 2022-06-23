@@ -1,4 +1,4 @@
-.game-directory {
+.game-directory-container {
   padding: 6em 0; 
   display: flex;
   flex-direction: column;
@@ -25,7 +25,13 @@
     }
   }
 
-  & .toggle-content {
+  & .options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125em;
+  }
+
+  & .options > .toggle-content {
     display: flex;
     gap: 1em;
     align-items: center;
@@ -55,7 +61,7 @@
     }
   }
 
-  & .filters {
+  & .options > .filters {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0 2.125em;
@@ -63,7 +69,7 @@
   }
 }
 
-.dark .game-directory {
+.dark .game-directory-container {
   color: var(--text_100);
 
   & .toggle-content {
@@ -87,5 +93,61 @@
     }
     
     & .active { color: var(--text_100); }
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .game-directory-container {
+    & .header {
+      padding: 0 2em;
+    }
+
+    & .toggle-content {
+      gap: 2em;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .game-directory-container {
+    & .options {
+      flex-direction: row-reverse;
+      align-items: center;
+      padding: 0 3.5em;
+      margin: 0;
+    }
+  
+    & .options > .toggle-content {
+      flex: 1;
+      justify-content: flex-end;
+    }
+  
+    & .options > .filters {
+      flex: 1;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 830px) {
+  .game-directory-container {
+    
+    // & .options {
+    //   flex-direction: row-reverse;
+    //   align-items: center;
+    //   padding: 0 3.5em;
+    //   margin: 0;
+    // }
+  
+    // & .options > .toggle-content {
+    //   flex: 1;
+    //   justify-content: flex-end;
+    // }
+  
+    // & .options > .filters {
+    //   flex: 1;
+    //   padding: 0;
+    // }
   }
 }
