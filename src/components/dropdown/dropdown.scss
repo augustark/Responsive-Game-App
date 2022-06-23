@@ -37,6 +37,7 @@
   }
 
   &-menu__list {
+    animation: sortFadeOut 0.5s;
     position: absolute;
     background: var(--text_100);
     padding: 1em 0.5em;
@@ -44,32 +45,41 @@
     top: calc(100% + 0.5em);
     border-radius: 0.1875rem;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-    opacity: 0;
     transform: translateY(-500%);
-    animation: fadeDDOut 250ms;
+    transition: all 0.4s;
+    visibility: hidden;
 
-    @keyframes fadeDDOut { 
+    @keyframes sortFadeOut {
       from {
-        transform: translateY(0%);
-        opacity: 1;
-      } 
+        visibility: visible;
+        transform: translateY(-500%);
+        opacity: 0.5;
+      }
       
       to {
-        transform: translateY(-5%);
+        visibility: hidden;
+        transform: translateY(-500%);
         opacity: 0;
       }
     }
 
     &.open {
-      opacity: 1;
+      animation: sortFadeIn 250ms;
       transition: all 0.5s ease;
       transform: translateY(0);
-      animation: fadeDDIn 250ms;
-      
-      @keyframes fadeDDIn { 
+      visibility: visible;
+
+      @keyframes sortFadeIn {
         from {
           transform: translateY(-5%);
-          opacity: 0;
+          visibility: visible;
+          opacity: 0.5;
+        }
+
+        to {
+          transform: translateY(0);
+          visibility: visible;
+          opacity: 1;
         }
       }
     }
@@ -82,6 +92,7 @@
       border-radius: 3px;
       text-align: left;
       font-size: 0.625rem;
+      font-family: inherit;
 
       &:focus,
       &:hover,
@@ -124,5 +135,30 @@
         color: var(--text_100);
       }
     }
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .dropdown {
+    &-header {
+      font-size: 0.75rem;
+      padding: 0.75em 1em;
+      
+      & p {
+        margin: 0;
+      }
+    }
+  
+    &-menu__list {  
+      &-item {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .dropdown {
+    max-width: 200px; 
   }
 }

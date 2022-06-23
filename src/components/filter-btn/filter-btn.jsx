@@ -16,7 +16,7 @@ function FilterBtn() {
       >
         Filter <FilterIcon/>
       </button>
-      <Filter open={open}/>
+      <Filter mobile open={open}/>
     </div>
   )
 }

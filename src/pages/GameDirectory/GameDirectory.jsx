@@ -1,15 +1,17 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { Dropdown, Filter, FilterBtn } from '../../components'
+import useViewport from '../../utils/custom-hooks/useViewport'
 import './GameDirectory.scss'
 
 function GameDirectory() {
+  const { width, breakpoint } = useViewport('830px')
   const activeClassName = ({ isActive }) => isActive ? 'active' : ''
 
   return (
-    <div className='game-directory'>
-      <Filter/>
-      <div className='game-directory-container'>
+    <div className='directory'>
+      {width > breakpoint && <Filter/>}
+      <div className='game-directory'>
         <div className='header'>
           <h1>Featured</h1>
         </div>
@@ -21,7 +23,7 @@ function GameDirectory() {
           </div>
           <div className='filters'>
             <Dropdown/>
-            <FilterBtn/>
+            {width < breakpoint && <FilterBtn/>}
           </div>
         </div>
         <Outlet/>

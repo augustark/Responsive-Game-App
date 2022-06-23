@@ -1,5 +1,5 @@
-.game-directory-container {
-  padding: 6em 0; 
+.game-directory {
+  padding: 6em 0;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
@@ -28,6 +28,7 @@
   & .options {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.125em;
   }
 
@@ -69,7 +70,7 @@
   }
 }
 
-.dark .game-directory-container {
+.dark .game-directory {
   color: var(--text_100);
 
   & .toggle-content {
@@ -97,7 +98,7 @@
 }
 
 @media screen and (min-width: 540px) {
-  .game-directory-container {
+  .game-directory {
     & .header {
       padding: 0 2em;
     }
@@ -110,7 +111,7 @@
 }
 
 @media screen and (min-width: 700px) {
-  .game-directory-container {
+  .game-directory {
     & .options {
       flex-direction: row-reverse;
       align-items: center;
@@ -128,26 +129,62 @@
       padding: 0;
     }
   }
+
+  .directory {
+    & .header {
+      & h1 {
+        height: 15vh;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 0.6em 0.9em;
+        font-size: 2.125rem;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 830px) {
-  .game-directory-container {
+  .directory {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 0 2em;
+    gap: 1em;
+
+    & .game-directory {
+      padding: 6em 2.125rem;
+      padding-right: 0; 
+
+      & .header,
+      & .options,
+      & .preview {
+        padding: 0;
+      }
+
+      & .options .toggle-content {
+        padding: 0;
+        flex: 2;
+        font-size: 0.8rem;
+      }
+      
+      & .options > .filters {
+        display: flex;
+        flex: 0.8;
+      }
+    }
     
-    // & .options {
-    //   flex-direction: row-reverse;
-    //   align-items: center;
-    //   padding: 0 3.5em;
-    //   margin: 0;
-    // }
-  
-    // & .options > .toggle-content {
-    //   flex: 1;
-    //   justify-content: flex-end;
-    // }
-  
-    // & .options > .filters {
-    //   flex: 1;
-    //   padding: 0;
-    // }
+    & .header {
+      & h1 {
+        height: 25vh;
+        font-size: 3.125rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .directory {
+    max-width: 1600px;
+    grid-template-columns: 13% 1fr;
+    margin: 0 auto;
   }
 }

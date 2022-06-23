@@ -95,23 +95,18 @@
   }
 }
 
-@media screen and (min-width: 830px) {
-  // .preview {
-  //   & .cards {
-  //     display: grid;
-  //     grid-template-columns: repeat(3, 1fr);
-  //     gap: 1.25em;
-  
-  //     & .card {
-  //       h3 { 
-  //         font-size: 0.9rem; 
-  //         padding-left: 0.3em; 
-  //       }
-        
-  //       span { 
-  //         font-size: 0.625rem; 
-  //       }
-  //     }
-  //   }
-  // }
+@media screen and (min-width: 1000px) {
+  .preview {
+    & .cards {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .preview {
+    & .cards {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
 }
