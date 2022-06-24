@@ -184,7 +184,7 @@
 @media screen and (min-width: 1200px) {
   .directory {
     max-width: 1600px;
-    grid-template-columns: 13% 1fr;
+    grid-template-columns: auto 1fr;
     margin: 0 auto;
   }
 }

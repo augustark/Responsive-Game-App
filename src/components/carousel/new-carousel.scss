@@ -279,6 +279,45 @@
   }
 }
 
+@media screen and (max-height: 600px) and (max-width: 1100px) {
+  .carousel-wrapper {
+    & .keen-slider.carousel {
+      & .keen-slider__slide.slide {
+        height: 90vh;
+
+        & .info {
+          gap: 1em;
+    
+          & h1 {
+            font-size: 2.5rem;
+          }
+
+          & .description {
+            font-size: 0.75rem;
+          }
+
+          & .ratings {
+            font-size: 0.75rem;
+          }
+
+          & .buttons {
+            display: flex;
+            gap: 0.625rem;
+    
+            & button {
+              font-size: 0.625em;
+            }
+          }
+
+          & .genres {
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 // @media screen and (min-width: 1200px) {
 //   .carousel-wrapper {
 //     & .keen-slider.carousel {

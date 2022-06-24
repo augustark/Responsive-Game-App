@@ -87,6 +87,7 @@
   
     & .header {
       justify-content: space-between;
+      gap: 2em;
   
       & .logo {
         width: 78px;
@@ -133,13 +134,13 @@
     }
   }
 
-  .dark .navbar {
+  .navbar.overlay {
     & .header {
       &-theme {
         color: var(--text_200);
 
         & span {
-          color: var(--layer_300);
+          color: var(--layer_200);
         }
       }
 
@@ -154,24 +155,81 @@
       } 
     }
   }
-}
 
-@media screen and (min-width: 900px) {
-  .navbar > .header {
-    gap: 2.5em;
-    & .logo {
-      width: 120px;
-      min-width: 78px;
+  .dark .navbar.overlay > .header > .header-theme > span {
+    color: var(--layer_200)
+  }
+
+  .dark .navbar > .header {
+    & .header-theme > span {
+        color: var(--layer_300);
+    }
+    & .header-links > .active {
+        color: var(--layer_100);
     }
   }
-  
 }
 
-@media screen and (min-width: 1200px) {
-  .navbar {
-    & .header {
-      max-width: calc(1600px - 5rem);
+@media screen and (min-height: 600px) {
+  .navbar.overlay {
+    & > .header {
+      max-width: calc(800px + 0.625em);
       margin: 0 auto;
     }
   }
 }
+
+@media screen and (min-height: 800px) {
+  .navbar.overlay {
+    & > .header {
+      max-width: calc(1000px + 2.125em);
+      margin: 0 auto;
+
+      & .logo {
+        width: 100px;
+        min-width: 78px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    & > .header {
+      max-width: calc(1500px + 2.125em);
+      margin: 0 auto;
+
+      & .logo {
+        width: 100px;
+        min-width: 78px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .navbar.overlay {
+    & > .header {
+      min-width: calc(1200px + 2.125em);
+    }
+  }
+}
+
+// @media screen and (min-width: 900px) {
+//   .navbar > .header {
+//     gap: 2.5em;
+//     & .logo {
+//       width: 120px;
+//       min-width: 78px;
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 1200px) {
+//   .navbar {
+//     & .header {
+//       max-width: calc(1600px - 5rem);
+//       margin: 0 auto;
+//     }
+//   }
+// }
