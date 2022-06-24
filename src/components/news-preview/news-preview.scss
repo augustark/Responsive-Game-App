@@ -194,7 +194,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            color: var(--text_400);
+            color: var(--text_100);
+            background: var(--layer_300);
+            font-size: 0.75rem;
           }
 
           & p {
@@ -227,7 +229,8 @@
 
           & span:first-child {
             position: static;
-            color: var(--text_400);
+            color: var(--text_100);
+            background: var(--layer_400);
           }
 
           & p {

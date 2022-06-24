@@ -6,8 +6,8 @@ function Home() {
   return (
     <div className='home'>
       <Carousel/>
-      <Slides bg/>
-      <Slides/>
+      <Slides bg title={'Popular'}/>
+      <Slides title={'Upcoming Games'}/>
       <NewsOverview/>
     </div>
   )

@@ -1,8 +1,7 @@
 .game-details {
-  padding-bottom: 10em;
   position: relative;
   min-height: 100vh;
-  // transition: 1s;
+  padding-bottom: 5em;
 
   & .image-container {
     position: relative;
@@ -29,9 +28,7 @@
     align-items: center;
     justify-content: center;
     gap: 1.5em;
-    padding: 3em;
-    position: relative;
-    top: -150px;
+    padding: 1em 1.125em;
 
     & > img {
       width: 171px;
@@ -39,6 +36,7 @@
       object-fit: cover;
       z-index: 1;
       border-radius: 3px;
+      margin-top: -40%;
     }
 
     & h1 {
@@ -114,7 +112,10 @@
       gap: 1rem;
       color: var(--text_300);
 
-      & p {margin: 0;}
+      & p {
+        margin: 0;
+        line-height: 150%;
+      }
     }
 
     & .gallery {
@@ -152,13 +153,6 @@
       }
     }
   }
-
-  & .overview {
-    position: absolute;
-    bottom: 4%;
-    height: unset;
-    transition: bottom 1s ease;
-  }
 }
 
 .dark .game-details {
@@ -180,11 +174,294 @@
       text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.25);
     }
 
-    & .genres { color: var(--text_200);} 
+    & .platforms {
+      color: var(--text_200);
+      
+      & span { 
+        color: var(--text_100);  
+      }
+    }
+
+    & .genres { 
+      color: var(--text_200);
+
+      & span {
+        color: var(--text_100);
+      }
+    } 
     & .summary { color: var(--text_200); }
   }
+}
 
-  & .overview {
-    bottom: 5%;
+@media screen and (min-width: 450px) {
+  .game-details {
+    & .info {
+      & .gallery {
+        gap: 0.625em;
+  
+        & img {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .game-details {
+    & .info {
+      padding: 1em 2.125em;
+      & > img {
+        margin-top: -30%;
+      }
+
+      & .summary,
+      & .platforms,
+      & .genres {
+        font-size: 0.75rem;
+      }
+
+      & .gallery {
+        gap: 0.75em;
+  
+        & img {
+          width: 200px;
+        }
+      }
+
+      & .external {
+        font-size: 0.75rem;
+        padding: 2em 1em;
+    
+        & .links {
+          gap: 0.8em 0;
+        }
+      }
+    }
+  }
+
+  .dark .game-details {
+    & .image-container {
+      height: 40vh;
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .game-details {
+    & .info {
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      gap: 2.125em;
+
+      &-wrapper.sidebar {
+        margin-top: -50%;
+      }
+
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        position: relative;
+
+        & > img {
+          margin-top: 0;
+          width: 100%;
+          height: 100%;
+          margin-top: -10%;
+        }
+    
+        & h1 {
+          margin-top: 0;
+          z-index: 1;
+          font-size: 2.125rem;
+          text-align: left;
+          color: var(--text_100);
+          position: absolute;
+          bottom: calc(100% + 1em);
+        }
+    
+        & .genres {
+          padding: 1em 0;
+          gap: 0.25rem;
+          font-size: 1rem;
+          justify-content: flex-start;
+
+          & span {
+            font-size: 0.75rem;
+            color: var(--text_400);
+          }
+        }
+    
+        & .buttons {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+    
+          & .rating {
+            font-size: 0.75rem;
+            gap: 0.25em;
+            border: none;
+            padding: 0;
+            margin-top: 2em;
+    
+            & span {
+              font-size: 2rem;
+              gap: 0.25em;
+    
+              & svg { 
+                color: var(--layer_300); 
+                width: 35px;
+                height: 35px;
+              }
+            }
+          }
+          
+          
+          & .date {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 0.8rem;
+            gap: 0.5em;
+    
+            & span {
+              font-weight: normal;
+              font-size: 0.8rem;
+            }
+          }
+        }
+    
+        & .platforms {
+          color: var(--text_300);
+          
+          & span { 
+            color: var(--text_400);  
+          }
+        }
+
+        & .external {
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .game-details {
+    & .image-container {
+      height: 40vh;
+    }
+
+    & .info {
+      max-width: 800px;
+      margin: 0 auto;
+      &-wrapper {
+        & .summary {
+          padding: 1em 0;
+        }
+
+        & h1 {
+          font-size: 3.125rem;
+        }
+      }
+
+      &-wrapper.sidebar {
+        margin-top: -100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .game-details {
+    & .image-container {
+      height: 50vh;
+    }
+
+    & .info {
+      max-width: 900px;
+      grid-template-columns: 24% 1fr;
+      margin: 0 auto;
+      &-wrapper {
+        & > img {
+          max-width: 200px;
+        }
+
+        & .summary {
+          padding: 1em 0;
+        }
+
+        & h1 {
+          font-size: 3.125rem;
+        }
+      }
+
+      &-wrapper.sidebar {
+        margin-top: -130%;
+
+        & .external {
+          & .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75em 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .game-details {
+    & .image-container {
+      height: 50vh;
+    }
+
+    & .slides {
+      min-width: 1200px;
+    }
+
+    & .info {
+      max-width: 1200px;
+      grid-template-columns: 24% 1fr;
+      margin: 0 auto;
+      gap: 0;
+
+      &-wrapper {
+        height: 700px;
+        padding-left: 1em;
+
+        & h1 {
+          max-width: 500px;
+          font-size: 2.8rem;
+        }
+
+        & > img {
+          max-width: unset;
+        }
+
+        & .summary {
+          font-size: 1rem;
+          padding: 1em 0;
+        }
+      }
+
+      &-wrapper.sidebar {
+        margin-top: -70%;
+        max-width: 225px;
+        height: unset;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: 86%;
+          width: 1px;
+          background: var(--layer_200);
+          left: calc(100% + 2.125em);
+          top: 16%;
+        }
+      }
+    }
   }
 }

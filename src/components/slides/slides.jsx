@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './slides.scss'
 import { ChevLeftIcon, ChevRightIcon } from '../../assets/fluent-icons'
 
-function Slides({ bg }) {
+function Slides({ bg, title }) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
 
@@ -78,7 +78,7 @@ function Slides({ bg }) {
   return (
     <div className='slides'>
       <div className='slides-header'>
-        <h1>Popular</h1>
+        <h1>{title || 'Popular'}</h1>
         <Link to='/'>View All</Link>
       </div>
       <div ref={refCallback} className={`keen-slider ${bg ? 'bg' : ''}`}>

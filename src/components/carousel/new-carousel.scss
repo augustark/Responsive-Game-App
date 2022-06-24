@@ -318,29 +318,15 @@
   }
 }
 
-// @media screen and (min-width: 1200px) {
-//   .carousel-wrapper {
-//     & .keen-slider.carousel {
-//       & .keen-slider__slide.slide {
-//         & .info {
-//           left: 2%;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (min-width: 1400px) {
-//   .carousel-wrapper {
-//     & .keen-slider.carousel {
-//       & .keen-slider__slide.slide {
-//         & .info {
-//           left: 5%;
-//         }
-//       }
-//     }
-//   }
-// }
+@media only screen and (min-height: 1300px) and (min-width: 900px) {
+  .carousel-wrapper {
+    & .keen-slider.carousel {
+      & .keen-slider__slide.slide {
+        height: 50vh;
+      }
+    }
+  }
+}
 
 @media screen and (min-width: 1500px) {
   .carousel-wrapper {
