@@ -8,7 +8,7 @@ function FilterBtn() {
   const [open, setOpen, ref] = useClickOutside()
   
   return (
-    <div ref={ref}>
+    <React.Fragment ref={ref}>
       <button 
         type='button' 
         className={`filter-header ${open ? 'active' : ''}`}
@@ -17,7 +17,7 @@ function FilterBtn() {
         Filter <FilterIcon/>
       </button>
       <Filter mobile open={open}/>
-    </div>
+    </React.Fragment>
   )
 }
 

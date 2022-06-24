@@ -2,13 +2,13 @@ import './preview.scss'
 
 import React from 'react'
 
-function Preview({ title }) {
+function Preview({ title, oneCol }) {
   //max-width: 539px => 10 items
   //min-width: 540px => 15 items
   //min-width: 900px => 20 items
 
   return (
-    <div className='preview'>
+    <div className={`preview ${oneCol ? 'one-col' : ''}`}>
       {title && <h1>Coming this Week</h1>}
       <div className='cards'>
         {Array(15).fill('').map((_, idx) => (

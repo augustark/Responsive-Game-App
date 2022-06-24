@@ -1,21 +1,25 @@
 .news-preview {
   padding: 0 2.125rem;
+  // background: yellowgreen;
 
   & h1 {
     font-size: 1.125rem;
+    // background: lightblue;
   }
-
+  
   & .news-cards {
     display: flex;
     flex-direction: column;
     gap: 1.25em;
-
+    // background: lightcoral;
+    
     & .news-card {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1em;
-
+      gap: 0.625em;
+      // background: lightcyan;
+      
       & img {
         width: 100%;
         height: 89px;
@@ -23,14 +27,213 @@
         max-width: 139px;
         border-radius: 0.1875rem;
       }
-
+      
       & .info {
+
         h2 { 
-          font-size: 0.75rem; 
+          font-size: 0.7rem; 
           margin: 0;
         }
 
-        span { font-size: 0.5rem; }
+        span { 
+          font-size: 0.55rem; 
+          color: var(--text_300);
+        }
+
+        p {
+          display: none;
+          color: var(--text_300);
+        }
+      }
+    }
+  }
+}
+
+.dark .news-preview {  
+  & .news-cards {
+    & .news-card {
+      & .info {
+        span { 
+          color: var(--text_300);
+        }
+
+        p {
+          color: var(--text_200);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 380px) {
+  .news-preview {
+    & .news-cards {
+      & .news-card {
+        & .info {
+          h2 { 
+            font-size: 0.8rem; 
+            margin: 0;
+          }
+  
+          span { 
+            font-size: 0.6rem; 
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .news-preview {
+    & .news-cards {      
+      & .news-card {        
+        display: grid;
+        grid-template-columns: minmax(150px, 210px) 1fr;
+        gap: 1em;
+        
+        & img {
+          height: 100%;
+          max-width: unset;
+        }
+        
+        & .info {
+          h2 { 
+            font-size: 0.9rem; 
+          }
+  
+          span { 
+            font-size: 0.625rem; 
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .news-preview {
+    & .news-cards {      
+      & .news-card {        
+        & img {
+          height: 100%;
+          max-width: unset;
+        }
+        
+        & .info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25em;
+          h2 { 
+            font-size: 1rem; 
+          }
+  
+          span { 
+            font-size: 0.7rem; 
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .news-preview {
+    & h1 {
+      font-size: 1.5rem;
+    }
+
+    & .news-cards {
+      & .news-card {
+        display: grid;
+        grid-template-columns: minmax(200px, 260px) 1fr;
+        gap: 1.125em;
+          
+        & .info {
+          h2 { 
+            font-size: 1.2rem;
+          }
+
+          & span:first-child {
+            font-size: 0.6em;
+            background: var(--text_200);
+            align-self: flex-start;
+            padding: 0.5em 0.625em;
+            color: var(--text_300);
+          }
+  
+          span { 
+            font-size: 0.7rem; 
+          }
+
+          & span:last-child {
+            grid-area: source;
+          }
+
+          p {
+            display: block;
+            font-size: 0.75rem;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .news-preview {
+    & .news-cards {    
+      gap: 2.125em; 
+      & .news-card {
+        grid-template-columns: minmax(240px, 280px) 1fr;
+        position: relative;
+        
+        & .info {
+          & span:first-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: var(--text_400);
+          }
+
+          & p {
+            line-height: 150%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .news-preview {
+    & .news-cards { 
+      & .news-card {
+        grid-template-columns: minmax(300px, 400px) 1fr;
+        gap: 2em;
+        
+        & img {
+          border-radius: 0.5em;
+        }
+
+        & .info {
+          display: flex;
+          gap: 1em;
+
+          h2 { 
+            font-size: 1.5rem;
+          }
+
+          & span:first-child {
+            position: static;
+            color: var(--text_400);
+          }
+
+          & p {
+            font-size: 0.8rem;
+          }
+        }
       }
     }
   }

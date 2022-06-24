@@ -93,6 +93,24 @@
       }
     }
   }
+
+  .preview.one-col {
+    & .cards {
+      display: flex;
+      flex-direction: column;
+  
+      & .card {
+        h3 { 
+          font-size: 0.9rem; 
+          padding-left: 0.3em; 
+        }
+        
+        span { 
+          font-size: 0.625rem; 
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1000px) {
