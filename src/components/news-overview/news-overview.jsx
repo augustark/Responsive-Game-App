@@ -1,10 +1,11 @@
 import React from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import { Link } from 'react-router-dom'
+import Loading from '../loading/loading'
 import './news-overview.scss'
 
-
-function NewsOverview() {
+function NewsOverview({ response }) {
+  const { data, isFetching, isError } = response
   const [sliderRef] = useKeenSlider({
     mode: "snap",
     breakpoints: {
@@ -44,6 +45,9 @@ function NewsOverview() {
     }
   })
 
+  if (isFetching) return <Loading/>
+  if (isError) return <h1>Error</h1>
+
   return (
     <div className='news-overview'>
       <div className='news-header'>
@@ -51,33 +55,18 @@ function NewsOverview() {
         <Link to='/news'>View All</Link>
       </div>
       <div ref={sliderRef} className="keen-slider">
-      {Array(2).fill('').map((child, idx) => (
+      {data.articles.slice(0, 2).map((article, idx) => (
           <div className='keen-slider__slide' key={idx}>
-            <img src='https://i.imgur.com/YetHT0m.png' alt=''/>
-            <h3>‘Avatar: The Way of Water’ Teaser Trailer Nabs Huge 148.6M Views on First Day</h3>
-            <p>Source: Hollywood Reporter</p>
+            <a href={article.url} target='_blank' rel='noreferrer'>
+              <img src={article.urlToImage} alt=''/>
+              <h3>{article.title}</h3>
+              <p>Source: {article.source.name}</p>
+            </a>
           </div>
         ))}
       </div>
     </div>
   )
-  // return (
-  //   <div className='news-overview'>
-  //     <div className='news-header'>
-  //       <h1>Latest News</h1>
-  //       <span>View All</span>
-  //     </div>
-  //     <div ref={sliderRef} className='keen-slider'>
-  //       {Array(5).fill('').map((child, idx) => (
-  //         <div className='keen-slider__slide news-card bg' key={idx}>
-  //           <img src='https://i.imgur.com/YetHT0m.png' alt=''/>
-  //           <h3>‘Avatar: The Way of Water’ Teaser Trailer Nabs Huge 148.6M Views on First Day</h3>
-  //           <p>Source: Hollywood Reporter</p>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </div>
-  // )
 }
 
 export default NewsOverview

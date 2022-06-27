@@ -1,6 +1,7 @@
+import React from 'react'
+import Card from '../card/card'
 import './preview.scss'
 
-import React from 'react'
 
 function Preview({ title, oneCol }) {
   //max-width: 539px => 10 items
@@ -12,11 +13,7 @@ function Preview({ title, oneCol }) {
       {title && <h1>Coming this Week</h1>}
       <div className='cards'>
         {Array(15).fill('').map((_, idx) => (
-          <div key={idx} className='card'>
-            <img src='https://i.imgur.com/CnD6wKL.png' alt=''/>
-            <h3>Souldiers</h3>
-            <span>June 04</span>
-          </div>
+          <Card key={idx}/>
         ))}
       </div>
     </div>
@@ -24,3 +21,9 @@ function Preview({ title, oneCol }) {
 }
 
 export default Preview
+
+{/* <div key={idx} className='card'>
+  <img src='https://i.imgur.com/CnD6wKL.png' alt=''/>
+  <h3>Souldiers</h3>
+  <span>June 04</span>
+</div> */}

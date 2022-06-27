@@ -20,7 +20,7 @@ function Navbar() {
   const activeClassName = ({ isActive }) => isActive ? 'link active' : 'link' 
 
   return (
-    <div className={`navbar ${pathname === '/' || isGameDetails ? 'overlay' : ''}`}>
+    <nav className={`navbar ${pathname === '/' || isGameDetails ? 'overlay' : ''}`}>
       <nav className='header'>
         {
           isDark || pathname === '/' || isGameDetails
@@ -61,7 +61,7 @@ function Navbar() {
           </div>
         </div>
       )}
-    </div>
+    </nav>
   )
 }
 

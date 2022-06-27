@@ -3,16 +3,13 @@ import { useKeenSlider } from 'keen-slider/react'
 import { Link } from 'react-router-dom'
 import './slides.scss'
 import { ChevLeftIcon, ChevRightIcon } from '../../assets/fluent-icons'
+import Loading from '../loading/loading'
+import Card from '../card/card'
 
-function Slides({ bg, title }) {
+function Slides({ bg, title, response }) {
+  const { data, isFetching, isError } = response
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
-
-  const slideMap = Array(10).fill('').map((_, i) => (
-    <div className="keen-slider__slide" key={i}>
-      <Card/>
-    </div>
-  ))
 
   const [refCallback, instanceRef] = useKeenSlider({
     mode: "snap",
@@ -72,6 +69,15 @@ function Slides({ bg, title }) {
     }
   })
 
+  if (isFetching) return <Loading/>
+  if (isError) return <h1>Error</h1>
+
+  const slideMap = data.map((item, i) => (
+    <div className="keen-slider__slide" key={item.id}>
+      <Card {...item}/>
+    </div>
+  ))
+
   const prev = (e) => e.stopPropagation() || instanceRef.current?.prev()
   const next = (e) => e.stopPropagation() || instanceRef.current?.next()
 
@@ -101,12 +107,3 @@ function Slides({ bg, title }) {
 }
 
 export default Slides
-
-const Card = () => (
-  <>
-    <img src='https://i.imgur.com/wLJbKBZ.png' alt='' />
-    <div className='card-info'>
-      <h3>Super Mario Odyssey</h3>
-    </div>
-  </>
-)
