@@ -1,7 +1,6 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { useDirectoryStore } from '../../store'
-import useViewport from '../../utils/custom-hooks/useViewport'
+// import useViewport from '../../utils/custom-hooks/useViewport'
 import Card from '../card/card'
 import Loading from '../loading/loading'
 import './preview.scss'
@@ -16,7 +15,7 @@ function Preview({ title, oneCol }) {
   //min-width: 540px => 15 items
   //min-width: 900px => 20 items
 
-  const { data, isFetching, isError, isPreviousData } = useOutletContext()
+  const { data, isFetching, isError } = useOutletContext()
 
   if (isFetching) return <Loading/>
   if (isError) return <h1>Error</h1>

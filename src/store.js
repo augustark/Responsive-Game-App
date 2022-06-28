@@ -1,7 +1,6 @@
 import create from "zustand";
 import shallow from "zustand/shallow"
 import { featuredParams } from "./utils/fetchApi/gameParams";
-import { navigate } from "./utils/fetchApi/gameUtils";
 
 const useDarkModeStore = create((set) => ({
   isDark: false,
@@ -9,7 +8,7 @@ const useDarkModeStore = create((set) => ({
     set((state) => ({isDark: !state.isDark}))
 }))
 
-const useDirectoryStore = create((set, get) => ({
+const useDirectoryStore = create((set) => ({
   collection: {
     title: 'Featured',
     body: featuredParams,
