@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { Navbar, NewsPreview, Preview } from "./components";
 import { GameDetails, GameDirectory, Home, News, Page404, Search } from './pages'
-import './App.scss' 
 
 const twentyFourHoursInMs = 1000 * 60 * 60 * 24
 
@@ -38,6 +37,7 @@ function App() {
               <Route index element={<Preview/>}/>
               <Route path='coming' element={<Preview/>}/>
               <Route path='recent' element={<Preview/>}/>
+              <Route path='popular' element={<Preview/>}/>
             </Route>
             <Route path='/games/:gameid' element={<GameDetails/>}/>
             <Route path='/search' element={<Search/>}/>

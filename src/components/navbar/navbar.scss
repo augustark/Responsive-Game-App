@@ -98,32 +98,36 @@
         align-items: center;
         justify-content: center;
         font-size: 0.8rem;
+        font-weight: 500;
         color: var(--text_300);
         padding: 0.5em;
         cursor: pointer;
-
+        
         & span {
           color: var(--text_300);
           margin-left: 1em;
           font-weight: bold;
+          font-weight: 800;
         }
-
+        
         &:hover span { color: var(--text_400); }
       }
-
+      
       &-links {
         flex: 1;
         display: flex;
         align-items: center;
         gap: 1em;
-
+        
         & > .link {
           text-decoration: none;
           color: var(--text_300);
           font-size: 0.8rem;
+          font-weight: 500;
         }
-
+        
         & > .active {
+          font-weight: 700;
           color: var(--text_400)
         }
       } 
@@ -136,7 +140,6 @@
 
   .navbar.overlay {    
     & .header {
-
       &-theme {
         color: var(--text_200);
 

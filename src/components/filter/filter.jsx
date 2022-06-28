@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { _GENRES, _PLATFORMS } from './GnP'
 import { useDirectoryStore } from '../../store'
 import { CheckIcon } from '../../assets/fluent-icons'
-// import './filter.scss'
-import './new-filter.scss'
+import './filter.scss'
 
 function Filter({ open, mobile }) {
   return (
@@ -51,7 +50,7 @@ function FilterType({ title, data }) {
 
   return (
     <div className='wrapper'>
-      <h1>Genres</h1>
+      <h1>{title}</h1>
       <div className='wrapper__list'>
         {selectFilter.map((filterItem) => 
           <button

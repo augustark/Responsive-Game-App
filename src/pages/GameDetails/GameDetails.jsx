@@ -68,6 +68,8 @@ const DesktopLayout = (props) => {
   const url = cover.url.replace('t_thumb', 't_cover_big')
   const rating = Math.floor(total_rating)
 
+  console.log(screenshots)
+
   const genre = genres
     .filter((_, i) => i < 4)
     .map(({id, name}, idx) => {
@@ -120,7 +122,7 @@ const DesktopLayout = (props) => {
           {screenshots.map(shot => 
             <img 
               key={shot.image_id} 
-              src={shot.url.replace('t_thumb', 't_cover_big')} 
+              src={shot.url.replace('t_thumb', 't_screenshot_huge')} 
               alt={shot.checksum}
             />
           )}
@@ -185,7 +187,7 @@ const MobileLayout = (props) => {
           {screenshots.map(shot => 
             <img 
               key={shot.image_id} 
-              src={shot.url.replace('t_thumb', 't_1080p')} 
+              src={shot.url.replace('t_thumb', 't_cover_big')} 
               alt={shot.checksum}
             />
           )}

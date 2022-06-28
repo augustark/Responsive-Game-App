@@ -13,6 +13,7 @@
       position: absolute;
       height: 100%;
       width: 100%;
+      background: radial-gradient(110.25% 59.87% at 61.87% 40.13%, rgba(21, 24, 29, 0) 0%, rgba(13, 19, 33, 0.25) 0.01%, rgba(0, 0, 0, 0.5) 100%);
     }
 
     & .backdrop {
@@ -458,11 +459,11 @@
         &::after {
           content: '';
           position: absolute;
-          height: 90%;
+          height: 100%;
           width: 1px;
           background: var(--layer_200);
           left: calc(100% + 2.125em);
-          top: 16%;
+          top: 17.5%;
         }
       }
     }

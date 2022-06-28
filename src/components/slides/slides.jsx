@@ -6,8 +6,7 @@ import { ChevLeftIcon, ChevRightIcon } from '../../assets/fluent-icons'
 import Loading from '../loading/loading'
 import Card from '../card/card'
 
-function Slides({ bg, title, response, linkTo }) {
-  const { data, isFetching, isError } = response
+function Slides({ bg, title, response, linkTo, resArr }) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
   
@@ -69,6 +68,8 @@ function Slides({ bg, title, response, linkTo }) {
     }
   })
 
+  const { data, isFetching, isError } = response
+  
   if (isFetching) return <Loading/>
   if (isError) return <h1>Error</h1>
 

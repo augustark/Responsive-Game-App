@@ -9,11 +9,11 @@ export const heroParams = `
 `
 
 export const featuredParams = `
-  fields artworks.*, cover.*, genres.*, name, platforms, screenshots, total_rating, total_rating_count, first_release_date, themes.name; where artworks != null & cover != null & genres != null & rating >= 75 & first_release_date >= ${LAST5YEARS} & total_rating >= 80 & total_rating_count >= 50; sort first_release_date desc;
+  fields artworks.*, cover.*, genres.*, name, platforms, screenshots, total_rating, total_rating_count, first_release_date, themes.name; where artworks != null & cover != null & genres != null & rating >= 75 & first_release_date >= ${LAST5YEARS} & total_rating >= 80; sort first_release_date desc;
 `
 
 export const popularParams = `
-  fields artworks.*, cover.*, genres.*, name, platforms, screenshots, total_rating, total_rating_count, first_release_date, themes.name; where artworks != null & cover != null & genres != null & rating > 75 & first_release_date > ${TODAY_YEAR} & total_rating > 75; sort total_rating asc;
+  fields artworks.*, cover.*, genres.*, name, platforms, screenshots, total_rating, total_rating_count, first_release_date, themes.name; where artworks != null & cover != null & genres != null & first_release_date > ${TODAY_YEAR} & total_rating > 70; sort total_rating desc;
 `
 
 export const upcomingParams = `

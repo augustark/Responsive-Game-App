@@ -9,7 +9,7 @@ import shallow from "zustand/shallow"
 
 import fetchGames from '../../utils/fetchApi/gameApi'
 import { useDirectoryStore } from '../../store'
-import { ChevLeftIcon } from '../../assets/fluent-icons'
+import { ChevLeftIcon, ChevRightIcon } from '../../assets/fluent-icons'
 import { useEffect } from 'react'
 import { navigate } from '../../utils/fetchApi/gameUtils'
 
@@ -55,11 +55,11 @@ function GameDirectory() {
             <NavLink className={activeClassName} to='/games/coming'>Coming Soon</NavLink>
             <NavLink className={activeClassName} to='/games/recent'>Recently Released</NavLink>
             {width > breakpoint && (
-              <React.Fragment>
+              <div className='pagination'>
                 <button disabled={page === 1} onClick={prev}><ChevLeftIcon/></button>
                 <span>{page}</span>
-                <button disabled={response.isPreviousData} onClick={next}><ChevLeftIcon/></button>
-              </React.Fragment>
+                <button disabled={response.isPreviousData} onClick={next}><ChevRightIcon/></button>
+              </div>
             )}
           </div>
           <div className='filters'>

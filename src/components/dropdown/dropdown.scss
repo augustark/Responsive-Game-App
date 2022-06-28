@@ -99,6 +99,12 @@
       &:active {
         background: var(--text_200);
       }
+
+      &.selected {
+        background: var(--layer_300);
+        color: var(--text_100);
+        font-weight: 600;
+      }
     }
   }
 }
@@ -151,7 +157,7 @@
   
     &-menu__list {  
       &-item {
-        font-size: 0.75rem;
+        font-size: 0.625rem;
       }
     }
   }
@@ -160,5 +166,16 @@
 @media screen and (min-width: 700px) {
   .dropdown {
     max-width: 200px; 
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .dropdown {
+
+    &-menu__list {  
+      &-item {
+        font-size: 0.75rem;
+      }
+    }
   }
 }

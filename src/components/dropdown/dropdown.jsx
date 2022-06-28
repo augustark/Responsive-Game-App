@@ -68,13 +68,13 @@ function Dropdown() {
           <button 
             type='button' 
             key={item.id}
-            className='dropdown-menu__list-item'
+            className={`dropdown-menu__list-item ${item.id === sortBy.id ? 'selected' : ''}`}
             onClick={() => {
               setSortBy(item)
               setOpen(!open)
             }}
           >
-            {item.text || item.value}
+            {item.value}
           </button>
         ))}
       </div>

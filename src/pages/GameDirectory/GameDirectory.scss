@@ -136,6 +136,27 @@
     & .options > .toggle-content {
       flex: 1;
       justify-content: flex-end;
+
+      & .pagination {
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        & span {
+          font-weight: 800;
+          padding: 0.25em 0;
+        }
+
+        & button {
+          padding: 0;
+          background: none;
+
+          & svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
     }
   
     & .options > .filters {
@@ -152,6 +173,23 @@
         justify-content: flex-start;
         padding: 0.6em 0.9em;
         font-size: 2.125rem;
+      }
+    }
+  }
+
+  .dark .game-directory .options > .toggle-content{
+    & .pagination {
+      & button {
+        color: var(--text_100);
+
+        & svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        &:disabled {
+          color: var(--text_300);
+        }
       }
     }
   }
@@ -177,7 +215,7 @@
       & .options .toggle-content {
         padding: 0;
         flex: 2;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
       
       & .options > .filters {
@@ -192,6 +230,12 @@
         font-size: 3.125rem;
       }
     }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .directory > .game-directory > .options .toggle-content {
+    font-size: 0.8rem;
   }
 }
 
