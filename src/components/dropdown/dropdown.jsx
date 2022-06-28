@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { ChevDownIcon, ChevUpIcon } from '../../assets/fluent-icons'
+import { useDirectoryStore } from '../../store'
 import useClickOutside from '../../utils/custom-hooks/useClickOutside'
 import './dropdown.scss'
 
@@ -8,34 +10,47 @@ const sortData = [
     id: 1,
     value: 'Rating: Low to High',
     text: 'Low to High',
-    order: 'asc'
+    order: 'asc',
+    case: 'rating'
   },
   {
     id: 2,
     value: 'Rating: High to Low',
     text: 'High to Low',
-    order: 'desc'
+    order: 'desc',
+    case: 'rating'
   },
   {
     id: 3,
     value: 'A to Z',
-    order: 'asc'
+    order: 'asc',
+    case: 'title'
   },
   {
     id: 4,
     value: 'Z to A',
-    order: 'desc'
+    order: 'desc',
+    case: 'title'
   },
   {
     id: 5,
     value: 'Most Recent',
-    order: 'desc'
+    order: 'desc',
+    case: 'release date'
   }
 ]
 
 function Dropdown() {
   const [open, setOpen, ref] = useClickOutside()
-  const [sortBy, setSortBy] = useState('')
+  const [sortBy, setSortBy] = useState(sortData[4])
+  const setSort = useDirectoryStore((state) => state.setSort) 
+
+  useEffect(() => {
+    setSort({
+      option: sortBy.case,
+      order: sortBy.order
+    })
+  }, [sortBy, setSort])
 
   return (
     <div ref={ref} className='dropdown'>

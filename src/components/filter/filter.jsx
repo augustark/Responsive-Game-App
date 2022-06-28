@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { _GENRES, _PLATFORMS } from './GnP'
+import { useDirectoryStore } from '../../store'
+import { CheckIcon } from '../../assets/fluent-icons'
 // import './filter.scss'
 import './new-filter.scss'
-import { _GENRES, _PLATFORMS } from './GnP'
-import { useState } from 'react'
-import { useDirectoryStore } from '../../store'
-import { useEffect } from 'react'
-import { CheckIcon } from '../../assets/fluent-icons'
 
 function Filter({ open, mobile }) {
   return (
@@ -35,7 +33,7 @@ function FilterType({ title, data }) {
         }
       }
       return item
-    }), console.log(selectFilter))
+    }))
   }
 
   useEffect(() => {
@@ -46,7 +44,7 @@ function FilterType({ title, data }) {
     if (title.toLowerCase() === 'platforms') {
       addPlatform(selectedFilter)
     } else if (title.toLowerCase() === 'genres') {
-      addGenre(selectFilter)
+      addGenre(selectedFilter)
     }
 
   }, [addPlatform, addGenre, selectFilter, title])

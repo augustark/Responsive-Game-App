@@ -9,12 +9,12 @@ export const navigate = (id) => {
     switch(id) {
     case 'popular':
       return  {title: 'Popular Games', page: 1, body: popularParams}
-    case 'coming_soon':
+    case 'coming':
       return {title: 'Upcoming Games', page: 1, body: upcomingParams}
-    case 'recently_released':
-      return {title: 'Recently Released', page: 1, body: recentlyReleasedParams}
+    case 'recent':
+      return {title: 'Recent Games', page: 1, body: recentlyReleasedParams}
     default:
-      return {title: 'Games', page: 1, body: featuredParams}
+      return {title: 'Featured', page: 1, body: featuredParams}
   }
 }
 

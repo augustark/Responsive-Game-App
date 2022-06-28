@@ -1,21 +1,32 @@
 import React from 'react'
+import { useOutletContext } from 'react-router-dom'
+import { useDirectoryStore } from '../../store'
+import useViewport from '../../utils/custom-hooks/useViewport'
 import Card from '../card/card'
+import Loading from '../loading/loading'
 import './preview.scss'
 
 
-function Preview(props) {
+function Preview({ title, oneCol }) {
+  // const { width: mobileWidth, breakpoint: mobileBreakpoint } = useViewport('539px')
+  // const { width: tabletWidth, breakpoint: tabletBreakpoint } = useViewport('539px')
+  // const { width: desktopWidth, breakpoint: desktopBreakpoint } = useViewport('539px')
+
   //max-width: 539px => 10 items
   //min-width: 540px => 15 items
   //min-width: 900px => 20 items
-  const { title, oneCol } = props
-  console.log(props)
+
+  const { data, isFetching, isError, isPreviousData } = useOutletContext()
+
+  if (isFetching) return <Loading/>
+  if (isError) return <h1>Error</h1>
 
   return (
     <div className={`preview ${oneCol ? 'one-col' : ''}`}>
       {title && <h1>Coming this Week</h1>}
       <div className='cards'>
-        {Array(15).fill('').map((_, idx) => (
-          <Card key={idx}/>
+        {data.map((item, idx) => (
+          <Card key={idx} {...item}/>
         ))}
       </div>
     </div>

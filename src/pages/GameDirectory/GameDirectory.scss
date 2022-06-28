@@ -67,6 +67,21 @@
     padding: 0 2.125em;
     gap: 1em;
   }
+
+  & .pagination {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    padding: 0 2.125em;
+
+    & > button {
+      padding: 0.625em 1em;
+      border: none;
+      background-color: var(--text_200);
+      border-radius: 0.25em;
+      font-family: inherit;
+    }
+  }
 }
 
 .dark .game-directory {
