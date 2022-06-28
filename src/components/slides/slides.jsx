@@ -10,7 +10,7 @@ function Slides({ bg, title, response, linkTo }) {
   const { data, isFetching, isError } = response
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
-
+  
   const [refCallback, instanceRef] = useKeenSlider({
     mode: "snap",
     renderMode: 'performance',
@@ -85,7 +85,7 @@ function Slides({ bg, title, response, linkTo }) {
     <div className='slides'>
       <div className='slides-header'>
         <h1>{title || 'Popular'}</h1>
-        <Link to={`/games/${linkTo}`}>View All</Link>
+        {linkTo && <Link to={`/games/${linkTo}`}>View All</Link>}
       </div>
       <div ref={refCallback} className={`keen-slider ${bg ? 'bg' : ''}`}>
         {slideMap}

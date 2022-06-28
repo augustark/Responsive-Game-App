@@ -38,10 +38,16 @@
         display: flex;
         align-items: center;
         gap: 0.3em;
-
+        
         & svg {
           width: 16px;
           height: 16px;
+        }
+        
+        &:hover {
+          background: var(--layer_300);
+          border-color: var(--layer_300);
+          color: var(--text_100);
         }
       }
     }

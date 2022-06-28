@@ -27,3 +27,7 @@ export const recentlyReleasedParams = `
 export const topMonthParams = `
   fields artworks.*, cover.*, genres.*, name, platforms.*, screenshots, first_release_date, rating, total_rating, themes.name; where artworks != null & cover != null & genres != null & first_release_date > ${TODAY_YEAR} & first_released_date < ${LAST_DAY_OF_MONTH}; sort total_rating asc; limit 15;
 `
+
+export const findGame = (id) => `
+  fields artworks.*, cover.*, first_release_date, game_modes.*, genres.*, name, platforms.*, player_perspectives.*, rating, release_dates.*, screenshots.*, similar_games.cover.*, similar_games.genres.*, similar_games.name, similar_games.first_release_date, slug, storyline, summary, themes.name, total_rating, updated_at,url, videos.*, websites.*; where id = ${id};
+`

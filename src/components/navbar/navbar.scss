@@ -134,8 +134,9 @@
     }
   }
 
-  .navbar.overlay {
+  .navbar.overlay {    
     & .header {
+
       &-theme {
         color: var(--text_200);
 
@@ -156,8 +157,10 @@
     }
   }
 
-  .dark .navbar.overlay > .header > .header-theme > span {
-    color: var(--layer_200)
+  .dark .navbar.overlay > .header {
+    & .header-theme > span {
+        color: var(--layer_200);
+    }
   }
 
   .dark .navbar > .header {
