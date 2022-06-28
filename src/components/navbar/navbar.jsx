@@ -4,14 +4,14 @@ import {
   DarkLogo,GamesIcon, HomeIcon, 
   LightLogo, MoonIcon, NewsIcon, SunIcon 
 } from '../../assets/fluent-icons'
-import useStore from '../../store'
+import { useDarkModeStore } from '../../store'
 import Input from '../input/input'
 import { NavLink, useLocation } from 'react-router-dom'
 import useViewport from '../../utils/custom-hooks/useViewport'
 
 function Navbar() {
-  const isDark = useStore(state => state.isDark)
-  const toggleDarkMode = useStore(state => state.toggleDarkMode)
+  const isDark = useDarkModeStore(state => state.isDark)
+  const toggleDarkMode = useDarkModeStore(state => state.toggleDarkMode)
   const { pathname } = useLocation()
 
   let isGameDetails = /[0-9]+$/.test(pathname)

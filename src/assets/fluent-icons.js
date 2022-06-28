@@ -14,6 +14,7 @@ import { ReactComponent as ChevRightIcon } from './icons/chevron-right.svg'
 import { ReactComponent as StarHalfIcon } from './icons/star-half.svg'
 import { ReactComponent as TSAscIcon } from './icons/text-sort-asc.svg'
 import { ReactComponent as TSDescIcon } from './icons/text-sort-desc.svg'
+import { ReactComponent as CheckIcon } from './icons/check.svg'
 
 import { ReactComponent as LightLogo } from './libs/light-ver.svg'
 import { ReactComponent as DarkLogo } from './libs/dark-ver.svg'
@@ -38,7 +39,8 @@ export {
   ChevLeftIcon,
   StarHalfIcon,
   TSAscIcon,
-  TSDescIcon
+  TSDescIcon,
+  CheckIcon
 }
 
 export default Placeholder

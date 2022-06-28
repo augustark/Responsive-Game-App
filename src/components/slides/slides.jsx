@@ -6,7 +6,7 @@ import { ChevLeftIcon, ChevRightIcon } from '../../assets/fluent-icons'
 import Loading from '../loading/loading'
 import Card from '../card/card'
 
-function Slides({ bg, title, response }) {
+function Slides({ bg, title, response, linkTo }) {
   const { data, isFetching, isError } = response
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
@@ -85,7 +85,7 @@ function Slides({ bg, title, response }) {
     <div className='slides'>
       <div className='slides-header'>
         <h1>{title || 'Popular'}</h1>
-        <Link to='/'>View All</Link>
+        <Link to={`/games/${linkTo}`}>View All</Link>
       </div>
       <div ref={refCallback} className={`keen-slider ${bg ? 'bg' : ''}`}>
         {slideMap}

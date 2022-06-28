@@ -1,7 +1,7 @@
-import useStore from "./store";
+import { useDarkModeStore } from "./store";
 import { Route, Routes } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from 'react-query'
-import { Loading, Navbar, NewsPreview, Preview } from "./components";
+import { Navbar, NewsPreview, Preview } from "./components";
 import { GameDetails, GameDirectory, Home, News, Page404, Search } from './pages'
 import './App.scss' 
 
@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
 
 
 function App() {
-  const isDark = useStore(state => state.isDark)
+  const isDark = useDarkModeStore(state => state.isDark)
 
   return (
     <>

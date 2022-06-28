@@ -15,8 +15,8 @@ function Home() {
   return (
     <div className='home'>
       <Carousel response={res1}/>
-      <Slides bg title={'Popular'} response={res2}/>
-      <Slides title={'Upcoming Games'} response={res3}/>
+      <Slides bg title={'Popular'} response={res2} linkTo={'popular'}/>
+      <Slides title={'Upcoming Games'} response={res3} linkTo={'coming'}/>
       <NewsOverview response={res4}/>
     </div>
   )

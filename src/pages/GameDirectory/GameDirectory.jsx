@@ -1,11 +1,17 @@
 import React from 'react'
+import { useQuery } from 'react-query'
 import { NavLink, Outlet } from 'react-router-dom'
 import { Dropdown, Filter, FilterBtn } from '../../components'
 import useViewport from '../../utils/custom-hooks/useViewport'
 import './GameDirectory.scss'
 
+import fetchGames from '../../utils/fetchApi/gameApi'
+
 function GameDirectory() {
   const { width, breakpoint } = useViewport('830px')
+
+  // const { data, isFetching, isError, isPreviousData } = useQuery(['directory', config], fetchGames, { keepPreviousData: true })
+
   const activeClassName = ({ isActive }) => isActive ? 'active' : ''
 
   return (
@@ -26,7 +32,7 @@ function GameDirectory() {
             {width < breakpoint && <FilterBtn/>}
           </div>
         </div>
-        <Outlet/>
+        {/* <Outlet context={{title: 'hello'}}/> */}
       </div>
     </div>
   )

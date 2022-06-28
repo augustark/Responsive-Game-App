@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { DarkLogo, LightLogo } from '../../assets/fluent-icons'
-import useStore from '../../store'
+import { useDarkModeStore } from '../../store'
 import './loading.scss'
 
 function Loading() {
-  const isDark = useStore(state => state.isDark)
+  const isDark = useDarkModeStore(state => state.isDark)
 
   useEffect(() => {
     document.querySelector('body').style.overflow = 'hidden'

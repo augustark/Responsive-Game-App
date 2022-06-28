@@ -3,10 +3,12 @@ import Card from '../card/card'
 import './preview.scss'
 
 
-function Preview({ title, oneCol }) {
+function Preview(props) {
   //max-width: 539px => 10 items
   //min-width: 540px => 15 items
   //min-width: 900px => 20 items
+  const { title, oneCol } = props
+  console.log(props)
 
   return (
     <div className={`preview ${oneCol ? 'one-col' : ''}`}>
@@ -21,9 +23,3 @@ function Preview({ title, oneCol }) {
 }
 
 export default Preview
-
-{/* <div key={idx} className='card'>
-  <img src='https://i.imgur.com/CnD6wKL.png' alt=''/>
-  <h3>Souldiers</h3>
-  <span>June 04</span>
-</div> */}

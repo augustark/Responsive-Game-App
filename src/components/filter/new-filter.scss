@@ -1,8 +1,11 @@
 .filter {
-  & > h1 {
-    margin: 0;
-    font-size: 1rem;
-    align-self: center;
+  &-container {
+
+    & > h1 {
+      margin: 0;
+      font-size: 1rem;
+      align-self: center;
+    }
   }
 
   & .wrapper {
@@ -24,11 +27,22 @@
         padding: 0.5em 1em;
         font-size: 0.75rem;
         color: var(--text_300);
+        font-family: inherit;
+
       }
-  
+      
       &-item.selected {
         background: var(--layer_300);
         border-color: var(--layer_300);
+        color: var(--text_100);
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+
+        & svg {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }
@@ -43,14 +57,24 @@
     border-radius: 1em 1em 0 0;
     display: flex;
     flex-direction: column;
-    gap: 1.125em;
-    padding: 1.5em 2em;
+    // gap: 1.125em;
+    padding: 1em 0.25em;
     background: linear-gradient(0deg, #C1CCCE -100%, #EDE9E8 100%);
     border-radius: 1.125em 1.125em 0 0;
     transform: translateY(100%);
     animation: popUpFadeOut 1s;
     visibility: hidden;
     transition: all 0.4s;
+    
+    & .filter-container {
+      border-radius: 1.125em 1.125em 0 0;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+      gap: 1.125em;
+      
+      padding: 1.5em 2em;
+    }
     
     @keyframes popUpFadeOut {
       from {
