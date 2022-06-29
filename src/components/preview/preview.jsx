@@ -8,11 +8,7 @@ import './preview.scss'
 function Preview({ title, oneCol }) {
   const { width: mobileWidth, breakpoint: mobileBreakpoint } = useViewport('540px')
   const { width: desktopWidth, breakpoint: desktopBreakpoint } = useViewport('1000px')
-
-  //max-width: 539px => 10 items
-  //min-width: 540px => 15 items
-  //min-width: 900px => 20 items
-
+  
   const dataLength = mobileWidth >= mobileBreakpoint && desktopWidth <= desktopBreakpoint ? 21 : 20
 
   const { data, isFetching, isError } = useOutletContext()

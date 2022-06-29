@@ -4,7 +4,7 @@ import Placeholder from '../../assets/fluent-icons'
 import './card.scss'
 
 function Card(props) {
-  const { cover, name, first_release_date, id, isLoading } = props
+  const { cover, name, first_release_date, id } = props
   const navigate = useNavigate()
   let options = {
     month: 'short',

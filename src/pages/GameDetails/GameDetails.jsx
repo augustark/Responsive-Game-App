@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { StarIcon } from '../../assets/fluent-icons'
-import {Loading, Slides } from '../../components'
+import {ExternalLinks, Loading, Slides } from '../../components'
 import useViewport from '../../utils/custom-hooks/useViewport'
 import { findGame } from '../../utils/fetchApi/gameParams'
 import fetchGames from '../../utils/fetchApi/gameApi'
@@ -16,19 +16,21 @@ function GameDetails() {
     request: 1
   }
 
-  const response = useQuery(['game', config], fetchGames, { keepPreviousData: true })
+  const { data, isFetching, isError } = useQuery(['game', config], fetchGames, { keepPreviousData: true })
 
-  const { data, isLoading, isError } = response
-
-  if (isLoading) return <Loading/>
+  if (isFetching) return <Loading/>
   if (isError) return <div>Error</div>
 
-  const backdrop = data[0].artworks[0].url.replace('t_thumb', 't_1080p')
-  
+  const backdrop = !data[0].artworks ? data[0].screenshots[0] : data[0].artworks[0]
+
   return (
     <div className='game-details'>
       <div className='image-container'>
-        <img className='backdrop' src={backdrop} alt=''/>
+        <img 
+          className='backdrop skeleton' 
+          src={backdrop.url.replace('t_thumb', 't_1080p')} 
+          alt=''
+        />
       </div>
       <div className='info'>
         { width < breakpoint ? 
@@ -41,7 +43,7 @@ function GameDetails() {
         title={'Similar Games'} 
         response={{
           data: data[0].similar_games, 
-          isFetching: isLoading, 
+          isFetching: isFetching, 
           isError: isError
         }}
       />
@@ -67,8 +69,6 @@ const DesktopLayout = (props) => {
 
   const url = cover.url.replace('t_thumb', 't_cover_big')
   const rating = Math.floor(total_rating)
-
-  console.log(screenshots)
 
   const genre = genres
     .filter((_, i) => i < 4)
@@ -98,19 +98,7 @@ const DesktopLayout = (props) => {
             {new Date(first_release_date * 1000).toLocaleDateString(undefined, { month: 'short', day: 'numeric'})}
           </div>
         </div>
-        <div className='external'>
-          <h2>External Links</h2>
-          <div className='links'>
-            <span><a>Official Website</a></span>
-            <span><a>Epic Games</a></span>
-            <span><a>Steam</a></span>
-            <span><a>Wikipedia</a></span>
-            <span><a>Twitch</a></span>
-            <span><a>Wikia</a></span>
-            <span><a>Twitter</a></span>
-            <span><a>Facebook</a></span>
-          </div>
-        </div>
+        <ExternalLinks websites={websites}/>
       </div>
       <div className='info-wrapper'>
         <h1>{name}</h1>
@@ -124,6 +112,7 @@ const DesktopLayout = (props) => {
               key={shot.image_id} 
               src={shot.url.replace('t_thumb', 't_screenshot_huge')} 
               alt={shot.checksum}
+              className='skeleton'
             />
           )}
         </div>
@@ -192,19 +181,7 @@ const MobileLayout = (props) => {
             />
           )}
         </div>
-        <div className='external'>
-          <h2>External Links</h2>
-          <div className='links'>
-            <span><a>Official Website</a></span>
-            <span><a>Epic Games</a></span>
-            <span><a>Steam</a></span>
-            <span><a>Wikipedia</a></span>
-            <span><a>Twitch</a></span>
-            <span><a>Wikia</a></span>
-            <span><a>Twitter</a></span>
-            <span><a>Facebook</a></span>
-          </div>
-        </div>
+        <ExternalLinks websites={websites}/>
       </div>
     </>
   )
