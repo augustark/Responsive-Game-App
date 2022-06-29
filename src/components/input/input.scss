@@ -10,7 +10,6 @@
   }
 
   &.showed.not {
-    // border: 1px solid var(--text_400);
     background-color: var(--text_200);
   }
 
@@ -41,8 +40,14 @@
 }
 
 .dark .input-field {
-  &.showed { background: var(--layer_500); }
-  & svg { color: var(--text_100); }
+  &.showed { 
+    background: var(--layer_400); 
+  }
+
+  & svg { 
+    color: var(--text_100); 
+  }
+
   & input {
     color: var(--text_100);
     &::placeholder { 

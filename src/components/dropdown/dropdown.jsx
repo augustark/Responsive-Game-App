@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { ChevDownIcon, ChevUpIcon } from '../../assets/fluent-icons'
 import { useDirectoryStore } from '../../store'
 import useClickOutside from '../../utils/custom-hooks/useClickOutside'
@@ -44,6 +44,7 @@ function Dropdown() {
   const [open, setOpen, ref] = useClickOutside()
   const [sortBy, setSortBy] = useState(sortData[4])
   const setSort = useDirectoryStore((state) => state.setSort) 
+  const { pathname } = useLocation()
 
   useEffect(() => {
     setSort({
@@ -73,6 +74,7 @@ function Dropdown() {
               setSortBy(item)
               setOpen(!open)
             }}
+            disabled={item.case === 'rating' && pathname.includes('coming')}
           >
             {item.value}
           </button>

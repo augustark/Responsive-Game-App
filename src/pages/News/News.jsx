@@ -4,14 +4,12 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { useKeenSlider } from "keen-slider/react"
 import { topRatedParams, upcomingParams } from '../../utils/fetchApi/gameParams'
 import fetchGames from '../../utils/fetchApi/gameApi'
-import fetchNews from '../../utils/fetchApi/gameNewsApi'
 import useViewport from '../../utils/custom-hooks/useViewport'
 import { Loading, NewsPreview, Preview } from '../../components'
 import './News.scss'
 
 function News() {
   const { width, breakpoint } = useViewport('700px')
-
   const [sliderRef] = useKeenSlider({
     mode: 'snap',
     initial: 0,
@@ -24,13 +22,11 @@ function News() {
 
   const { data, isFetching, isError } = useQuery(['top-rated', {body: topRatedParams}], fetchGames, { keepPreviousData: true})
   const res2 = useQuery(['top-rated', {body: upcomingParams}], fetchGames, { keepPreviousData: true})
-  const res3 = useQuery('news', fetchNews, { keepPreviousData: true })
 
   if (isFetching) return <Loading/>
   if (isError) return <h1>Error...</h1>
 
   const activeClassName = ({ isActive }) => isActive ? 'active' : ''
-
 
   return (
     <div className='news'>
@@ -55,7 +51,7 @@ function News() {
           })}
         </div>
       </div>
-      {width < breakpoint ? <Outlet context={res2}/> : <NewsPreview response={res3}/>}
+      {width < breakpoint ? <Outlet context={res2}/> : <NewsPreview/>}
       { width > breakpoint && <Preview oneCol response={res2} title={'Coming this week'}/> }
     </div>
 

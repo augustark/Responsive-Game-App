@@ -402,22 +402,23 @@
         }
       }
 
+      &-wrapper:last-child {
+        &::after {
+          content: '';
+          position: absolute;
+          height: 120%;
+          width: 1px;
+          background: var(--layer_200);
+          right: calc(100% + 1.125em);
+        }
+      }
+
       &-wrapper.sidebar {
         margin-top: -53%;
         max-width: 225px;
         height: unset;
         position: relative;
         height: 100%;
-
-        &::after {
-          content: '';
-          position: absolute;
-          height: 100%;
-          width: 1px;
-          background: var(--layer_200);
-          left: calc(100% + 2.125em);
-          top: 15%;
-        }
       }
     }
   }

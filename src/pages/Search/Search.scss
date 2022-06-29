@@ -19,3 +19,15 @@
     }
   }
 }
+
+.dark .search {
+  &-header {
+    & h1 {
+      color: var(--text_100);
+    }
+
+    & span {
+      color: var(--text_200);
+    }
+  }
+}

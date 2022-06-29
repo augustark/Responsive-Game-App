@@ -186,7 +186,7 @@
           text-align: right;
           font-size: 1rem;
         }
-
+        
         &__list {
           align-items: flex-end;
           gap: 0.25em;
@@ -205,6 +205,12 @@
             transition: 250ms;
             color: var(--text_100);
           }
+
+          &-item.selected:hover {
+            background: var(--layer_300);
+            border-color: var(--layer_400);
+            color: var(--text_100);
+          }
         }
       }
     }
@@ -220,9 +226,6 @@
       }
 
       &__list {
-        align-items: flex-end;
-        gap: 0;
-
         &-item {
           border: none;
           font-size: 0.85rem;
@@ -235,6 +238,12 @@
         &-item:hover {
           background: var(--text_300);
           transition: 250ms;
+          color: var(--text_100);
+        }
+
+        &-item.selected:hover {
+          background: var(--layer_300);
+          border-color: var(--layer_300);
           color: var(--text_100);
         }
       }

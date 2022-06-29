@@ -1,19 +1,24 @@
 import React from 'react'
+import { useQuery } from 'react-query'
 import { useSearchParams } from 'react-router-dom'
-import { Preview } from '../../components'
+import { fetchGamesBySearch } from '../../utils/fetchApi/gameApi'
 import { capitalize } from '../../utils/helper'
+import { Preview } from '../../components'
 import './Search.scss'
+
 
 function Search() {
   const [searchParams] = useSearchParams()
+  const query = searchParams.get('q')
+  const response = useQuery(['search', query], fetchGamesBySearch, { keepPreviousData: true })
 
   return (
     <div className='search'>
       <div className='search-header'>
-        <span>8 Results for</span>
-        <h1>'{capitalize(searchParams.get('q'))}'</h1>
+        <span>{response?.data?.length} Results for</span>
+        <h1>'{capitalize(query)}'</h1>
       </div>
-      <Preview/>
+      <Preview response={response} searchGrid/>
     </div>
   )
 }

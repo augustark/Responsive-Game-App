@@ -137,14 +137,25 @@
       &:focus,
       &:hover,
       &:active {
+        background: var(--text_300);
+        color: var(--text_100);
+      }
+
+      &:disabled {
+        color: var(--text_300);
+      }
+
+      &.selected {
         background: var(--layer_300);
         color: var(--text_100);
+        font-weight: 600;
       }
     }
   }
 }
 
 @media screen and (min-width: 540px) {
+  .dark .dropdown,
   .dropdown {
     &-header {
       font-size: 0.75rem;
@@ -170,8 +181,8 @@
 }
 
 @media screen and (min-width: 1000px) {
+  .dark .dropdown,
   .dropdown {
-
     &-menu__list {  
       &-item {
         font-size: 0.75rem;

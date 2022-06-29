@@ -21,11 +21,12 @@ const queryClient = new QueryClient({
 
 function App() {
   const isDark = useDarkModeStore(state => state.isDark)
+  const isOverlay = useDarkModeStore(state => state.isOverlay)
 
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <main className={isDark ? 'app dark' : 'app'}>
+        <main className={`app ${isDark ? 'dark' : ''} ${isOverlay ? 'overlay' : ''}`}>
           <Navbar/>
           <Routes>
             <Route index element={<Home/>}/>

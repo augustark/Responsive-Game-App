@@ -40,7 +40,11 @@ html, body {
 }
 
 .app.dark {
-  background: linear-gradient(180deg, var(--text_400) 5%, var(--layer_500) 100%);
+  background: linear-gradient(180deg, var(--layer_500) 0%, #15181D 100%);
+}
+
+.app.dark.overlay {
+  background: linear-gradient(180deg, var(--text_400) 0%, var(--layer_500) 100%);
 }
 
 .skeleton {

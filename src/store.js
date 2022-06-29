@@ -4,8 +4,9 @@ import { featuredParams } from "./utils/fetchApi/gameParams";
 
 const useDarkModeStore = create((set) => ({
   isDark: false,
-  toggleDarkMode: () => 
-    set((state) => ({isDark: !state.isDark}))
+  isOverlay: true,
+  toggleDarkMode: () => set((state) => ({isDark: !state.isDark})),
+  toggleOverlay: (overlay) => set((state) => ({isOverlay: overlay}))
 }))
 
 const useDirectoryStore = create((set) => ({
