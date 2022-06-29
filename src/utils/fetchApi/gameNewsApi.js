@@ -10,10 +10,10 @@ if (process.env.NODE_ENV === 'development') {
 
 const fetchNews = async () => {
   const apiKey = process.env.REACT_APP_NEWSAPI_APIKEY
-  const topic = 'video+games'
+  const topic = 'video-games'
 
   const response = await axios({
-    url: `${PROXY}everything?q=${topic}`,
+    url: `${PROXY}everything?q=${topic}&sortBy=relevancy&pageSize=25`,
     method: 'GET',
     headers: {
       'Authorization': apiKey

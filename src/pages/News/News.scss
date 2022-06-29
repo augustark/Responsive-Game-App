@@ -58,9 +58,10 @@
 
         & h1 {
           position: absolute;
-          bottom: 15%;
+          bottom: 12%;
           left: 10%;
           margin: 0;
+          line-height: 100%;
           color: var(--text_100);
         }
         
@@ -68,7 +69,7 @@
           content: '';
           position: absolute;
           top: 1em;
-          bottom: 1.2em;
+          bottom: 1em;
           right: 1em;
           left: 1em;
           border-radius: 0.75rem;
@@ -118,8 +119,8 @@
           }
 
           &::before {
-            top: 2em;
-            bottom: 2.2em;
+            top: 1em;
+            bottom: 2em;
             right: 2em;
             left: 2em;
           }
@@ -149,7 +150,7 @@
 
           &::before {
             top: 1em;
-            bottom: 2.2em;
+            bottom: 2em;
             right: 2em;
             left: 2em;
           }
@@ -193,6 +194,10 @@
       & > .keen-slider {
         & .keen-slider__slide.card {
           padding: 1em 2em;
+          
+          & h1 {
+            max-width: 600px;
+          }
 
           & img {
             max-height: 370px;
@@ -200,7 +205,7 @@
           }
 
           &::before {
-            bottom: 1.2em;
+            bottom: 1em;
           }
         }
       }

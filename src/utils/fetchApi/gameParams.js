@@ -1,6 +1,7 @@
 const date = new Date()
 const TODAY_YEAR = new Date(date.getFullYear(), 0).getTime()/1000
-const LAST_DAY_OF_MONTH = new Date(date.getFullYear(), date.getMonth()).getTime()/1000
+const TODAY_MONTH = new Date(date.getFullYear(), date.getMonth()).getTime()/1000
+const LAST_DAY_OF_MONTH = new Date(date.getFullYear(), date.getMonth() + 1, 0).getTime()/1000
 const LAST5YEARS = new Date(date.getFullYear() - 5, 0).getTime()/1000
 const DATE_TODAY = Math.floor(date.getTime()/1000)
 
@@ -30,4 +31,8 @@ export const topMonthParams = `
 
 export const findGame = (id) => `
   fields artworks.*, cover.*, first_release_date, game_modes.*, genres.*, name, platforms.*, player_perspectives.*, rating, release_dates.*, screenshots.*, similar_games.cover.*, similar_games.genres.*, similar_games.name, similar_games.first_release_date, slug, storyline, summary, themes.name, total_rating, updated_at,url, videos.*, websites.*; where id = ${id};
+`
+
+export const topRatedParams = `
+  fields artworks.*, cover.*, genres.*, platforms, screenshots, name, first_release_date, rating, total_rating; where artworks != null & cover != null & genres != null & first_release_date > ${TODAY_MONTH} & first_release_date < ${LAST_DAY_OF_MONTH} & total_rating > 75; sort total_rating desc;
 `

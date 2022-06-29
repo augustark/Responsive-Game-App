@@ -20,6 +20,7 @@ import { ReactComponent as LightLogo } from './libs/light-ver.svg'
 import { ReactComponent as DarkLogo } from './libs/dark-ver.svg'
 
 import Placeholder from './libs/placeholder.png'
+import ls_placeholder from './libs/placeholder_landscape.png'
 
 export {
   GamesIcon,
@@ -40,7 +41,8 @@ export {
   StarHalfIcon,
   TSAscIcon,
   TSDescIcon,
-  CheckIcon
+  CheckIcon,
+  ls_placeholder
 }
 
 export default Placeholder

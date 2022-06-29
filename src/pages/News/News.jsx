@@ -1,8 +1,12 @@
 import React from 'react'
-import { useKeenSlider } from "keen-slider/react"
+import { useQuery } from 'react-query'
 import { NavLink, Outlet } from 'react-router-dom'
+import { useKeenSlider } from "keen-slider/react"
+import { topRatedParams, upcomingParams } from '../../utils/fetchApi/gameParams'
+import fetchGames from '../../utils/fetchApi/gameApi'
+import fetchNews from '../../utils/fetchApi/gameNewsApi'
 import useViewport from '../../utils/custom-hooks/useViewport'
-import { NewsPreview, Preview } from '../../components'
+import { Loading, NewsPreview, Preview } from '../../components'
 import './News.scss'
 
 function News() {
@@ -17,7 +21,16 @@ function News() {
       spacing: 15,
     },
   })
+
+  const { data, isFetching, isError } = useQuery(['top-rated', {body: topRatedParams}], fetchGames, { keepPreviousData: true})
+  const res2 = useQuery(['top-rated', {body: upcomingParams}], fetchGames, { keepPreviousData: true})
+  const res3 = useQuery('news', fetchNews, { keepPreviousData: true })
+
+  if (isFetching) return <Loading/>
+  if (isError) return <h1>Error...</h1>
+
   const activeClassName = ({ isActive }) => isActive ? 'active' : ''
+
 
   return (
     <div className='news'>
@@ -30,26 +43,20 @@ function News() {
       <div className='news-slides'>
         <h2>Top Rated This Month</h2>
         <div ref={sliderRef} className='keen-slider'>
-          <div className="keen-slider__slide card">
-            <img src='https://images.igdb.com/igdb/image/upload/t_original/ar9qp.jpg' alt='game artwork'/>
-            <h1>Card Shark</h1>
-          </div>
-          <div className="keen-slider__slide card">
-            <img src='https://images.igdb.com/igdb/image/upload/t_original/ar9qp.jpg' alt='game artwork'/>
-            <h1>Card Shark</h1>
-          </div>
-          <div className="keen-slider__slide card">
-            <img src='https://images.igdb.com/igdb/image/upload/t_original/ar9qp.jpg' alt='game artwork'/>
-            <h1>Card Shark</h1>
-          </div>
-          <div className="keen-slider__slide card">
-            <img src='https://images.igdb.com/igdb/image/upload/t_original/ar9qp.jpg' alt='game artwork'/>
-            <h1>Card Shark</h1>
-          </div>
+          {data.map((game) => {
+            const cardImg = !game.artworks ? game.screenshots[0] : game.artworks[0]
+
+            return (
+              <div className="keen-slider__slide card" key={game.id}>
+                <img src={cardImg.url.replace('t_thumb', 't_1080p')} alt='game artwork'/>
+                <h1>{game.name}</h1>
+              </div>
+            )
+          })}
         </div>
       </div>
-      {width < breakpoint ? <Outlet/> : <NewsPreview/>}
-      { width > breakpoint && <Preview oneCol title={'Coming this week'}/> }
+      {width < breakpoint ? <Outlet context={res2}/> : <NewsPreview response={res3}/>}
+      { width > breakpoint && <Preview oneCol response={res2} title={'Coming this week'}/> }
     </div>
 
   )

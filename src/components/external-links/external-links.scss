@@ -48,13 +48,14 @@
       top: -10%;
       bottom: -10%;
       left: -2%;
-      width: 19%;
+      right: 83%;
       background: white;
       border-radius: 3px;
       z-index: 0;
     }
   }
 }
+// right: calc(83% + 0.65em);
 
 @media screen and (min-width: 500px) {
   .external {
@@ -63,6 +64,24 @@
 
     & .links {
       gap: 0.8em 0;
+    }
+  }
+
+  .dark .external {
+    & .links > span {
+      &::before {
+        right: calc(83% + 0.65em);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dark .external {
+    & .links > span {
+      &::before {
+        right: calc(83% + 1.5em);
+      }
     }
   }
 }
@@ -74,6 +93,14 @@
     & .links {
       display: flex;
       flex-direction: column;
+    }
+  }
+
+  .dark .external {
+    & .links > span {
+      &::before {
+        right: calc(83% + 0.65em);
+      }
     }
   }
 }
