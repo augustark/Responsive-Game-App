@@ -13,7 +13,7 @@ function Card(props) {
 
   return (
     <div className='card' onClick={() => navigate(`/games/${id}`)}>
-      <img src={cover?.url?.replace('t_thumb', 't_cover_big') || Placeholder} alt=''/>
+      <img className='skeleton' src={cover?.url?.replace('t_thumb', 't_cover_big') || Placeholder} alt=''/>
       <h3>{name}</h3>
       <span>
         {new Date(first_release_date * 1000).toLocaleDateString(undefined, options)}

@@ -10,15 +10,48 @@ import './News.scss'
 
 function News() {
   const { width, breakpoint } = useViewport('700px')
-  const [sliderRef] = useKeenSlider({
-    mode: 'snap',
-    initial: 0,
-    slides: {
-      origin: 'center',
-      perView: 1,
-      spacing: 15,
+  const [sliderRef] = useKeenSlider(
+    {
+      mode: 'snap',
+      loop: true,
+      initial: 0,
+      slides: {
+        origin: 'center',
+        perView: 1,
+        spacing: 15,
+      },
     },
-  })
+    [
+      (slider) => {
+        let timeout
+        let mouseOver = false
+        function clearNextTimeout() {
+          clearTimeout(timeout)
+        }
+        function nextTimeout() {
+          clearTimeout(timeout)
+          if (mouseOver) return
+          timeout = setTimeout(() => {
+            slider.next()
+          }, 5000)
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true
+            clearNextTimeout()
+          })
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false
+            nextTimeout()
+          })
+          nextTimeout()
+        })
+        slider.on("dragStarted", clearNextTimeout)
+        slider.on("animationEnded", nextTimeout)
+        slider.on("updated", nextTimeout)
+      },
+    ]
+  )
 
   const { data, isFetching, isError } = useQuery(['top-rated', {body: topRatedParams}], fetchGames, { keepPreviousData: true})
   const res2 = useQuery(['top-rated', {body: upcomingParams}], fetchGames, { keepPreviousData: true})
