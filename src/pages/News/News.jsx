@@ -1,12 +1,13 @@
 import React from 'react'
 import { useQuery } from 'react-query'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useKeenSlider } from "keen-slider/react"
 import { topRatedParams, upcomingParams } from '../../utils/fetchApi/gameParams'
 import fetchGames from '../../utils/fetchApi/gameApi'
 import useViewport from '../../utils/custom-hooks/useViewport'
 import { Loading, NewsPreview, Preview } from '../../components'
 import './News.scss'
+import { useEffect } from 'react'
 
 function News() {
   const { width, breakpoint } = useViewport('700px')
@@ -55,6 +56,14 @@ function News() {
 
   const { data, isFetching, isError } = useQuery(['top-rated', {body: topRatedParams}], fetchGames, { keepPreviousData: true})
   const res2 = useQuery(['top-rated', {body: upcomingParams}], fetchGames, { keepPreviousData: true})
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (width > breakpoint) {
+      navigate('/news', { replace: true })
+    }
+  }, [width, breakpoint, navigate])
 
   if (isFetching) return <Loading/>
   if (isError) return <h1>Error...</h1>

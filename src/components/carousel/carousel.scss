@@ -111,7 +111,8 @@
         content: '';
         width: 100%;
         height: 100%;
-        background: radial-gradient(110.25% 59.87% at 61.87% 40.13%, rgba(21, 24, 29, 0) 0%, rgba(13, 19, 33, 0.25) 0.01%, rgba(0, 0, 0, 0.5) 100%);
+        // background: radial-gradient(110.25% 59.87% at 61.87% 40.13%, rgba(21, 24, 29, 0) 0%, rgba(13, 19, 33, 0.25) 0.01%, rgba(0, 0, 0, 0.5) 100%);
+        background: radial-gradient(416.04% 59.07% at 50.13% 40.93%, rgba(0, 0, 0, 0) 0%, #0D1321 100%);
         position: absolute;
         opacity: 1;
         bottom: 0;
@@ -148,6 +149,13 @@
     }
   }
 }
+
+.dark .carousel-wrapper .keen-slider.carousel .keen-slider__slide.slide {
+  &::before {
+    background: radial-gradient(297.87% 55.69% at 50.13% 32.5%, rgba(13, 19, 33, 0.5) 0%, #04060B 100%);
+  }
+}
+
 
 @media screen and (min-height: 720px) {
   .carousel-wrapper {

@@ -32,7 +32,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='/news' element={<News/>}>
               <Route index element={<NewsPreview/>}/>
-              <Route path='upcoming-games' element={<Preview/>}/>
+              <Route path='upcoming-games' element={<Preview title={'Coming this week'}/>}/>
             </Route>
             <Route path="/games" element={<GameDirectory/>}>
               <Route index element={<Preview/>}/>
