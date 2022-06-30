@@ -10,3 +10,5 @@ Libraries used:
 
 ### Demo
 [Live Demo](https://swervegames.netlify.app/)
+
+![Desktop View](https://i.imgur.com/PuZjYe5.png "Desktop Version") ![Mobile View](https://i.imgur.com/u7hA9Kf.png "Mobile Version")
