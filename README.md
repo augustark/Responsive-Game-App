@@ -1,5 +1,5 @@
 # Swerve App
-A game search app built with [IGDB Api](https://api-docs.igdb.com/).
+A game news hub app built with [IGDB Api](https://api-docs.igdb.com/). 
 
 Libraries used:
 - [React Query](https://react-query.tanstack.com/)
