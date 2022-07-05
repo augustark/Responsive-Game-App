@@ -1,6 +1,6 @@
 const date = new Date()
 const TODAY_YEAR = new Date(date.getFullYear(), 0).getTime()/1000
-const TODAY_MONTH = new Date(date.getFullYear(), date.getMonth()).getTime()/1000
+const TODAY_MONTH = new Date(date.getFullYear(), date.getMonth() - 1).getTime()/1000
 const LAST_DAY_OF_MONTH = new Date(date.getFullYear(), date.getMonth() + 1, 0).getTime()/1000
 const LAST5YEARS = new Date(date.getFullYear() - 5, 0).getTime()/1000
 const DATE_TODAY = Math.floor(date.getTime()/1000)
