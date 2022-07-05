@@ -33,6 +33,11 @@
       }
     }
   }
+  .preview.one-col {
+    & .cards > .card:last-child {
+      display: none;
+    }
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -74,6 +79,11 @@
       &.search-grid > .card:last-child {
         display: flex;
       }
+    }
+  }
+  .preview.one-col {
+    & .cards > .card:last-child {
+      display: flex;
     }
   }
 }
