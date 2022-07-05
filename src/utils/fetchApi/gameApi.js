@@ -22,7 +22,7 @@ const instance = axios.create({
 const fetchGames = async ({ queryKey }) => {
   const { body, page, filter, request, sort } = queryKey[1]
   const offset = page && page === 1 ? 1 : ((page * 10) * 2 ) - 20
-  const limit = !request && `limit ${page ? 21 : 10};` 
+  const limit = !request && `limit ${page ? 21 : 13};` 
   const pagination = !request && `offset ${page ? offset : 1};`
 
   let customBody = page && insertFilter(body, filter)
