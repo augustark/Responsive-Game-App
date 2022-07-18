@@ -95,8 +95,8 @@ function Slide(props) {
   const date = new Date(first_release_date * 1000).toLocaleDateString()
   const desc = summary.length > 400 ? summary.slice(0, 400) + '...' :  summary
   const theme = themes
-    .filter((_, i) => i < 4)
-    .map(({id, name}, idx) => {
+    ?.filter((_, i) => i < 4)
+    ?.map(({id, name}, idx) => {
       if (idx !== themes.length - 1) {
         return (
           <React.Fragment key={id}>
