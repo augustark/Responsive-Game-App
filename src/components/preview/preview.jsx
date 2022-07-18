@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
 import { useLocation, useOutletContext } from 'react-router-dom'
-=======
-import { useOutletContext, useLocation } from 'react-router-dom'
->>>>>>> 9f29bfb1dad20be79c4892e8101d0308b7ae1f76
 import Card from '../card/card'
 import './preview.scss'
 
