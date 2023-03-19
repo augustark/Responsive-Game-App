@@ -106,12 +106,6 @@ function Slide(props) {
         )
       } else return <span key={id}>{name}</span>
     })
-    
-  if (videos[0].video_id) {
-    console.log(videos[0].video_id);
-  } else {
-    console.log("It doesn't exist");
-  }
 
   return (
     <div className='slide keen-slider__slide'>
