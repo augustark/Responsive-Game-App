@@ -106,7 +106,7 @@ function Slide(props) {
         )
       } else return <span key={id}>{name}</span>
     })
-
+  console.log(videos)
   return (
     <div className='slide keen-slider__slide'>
       <img src={url} alt=''/>
@@ -121,18 +121,6 @@ function Slide(props) {
           {theme}
         </div>
         <div className='buttons'>
-          <button>
-            {videos[0].video_id &&
-              (<a 
-                className='yt-link'
-                href={`https://www.youtube.com/watch?v=${videos[0].video_id}`} 
-                target='_blank' 
-                rel='noreferrer'
-              >
-                <IoLogoYoutube/>
-                <span>Watch Trailer</span>
-              </a>)}
-          </button>
           <button onClick={() => navigate(`/games/${id}`)}>
             Learn More
           </button>
