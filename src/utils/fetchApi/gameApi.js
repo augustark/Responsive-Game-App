@@ -72,7 +72,7 @@ export const fetchGamesBySearch = async ({ queryKey }) => {
     method: 'POST', 
     headers: {
       "Client-ID": process.env.REACT_APP_IGDB_CLIENT_ID,
-      "Authorization": await createAccessToken()
+      "Authorization": process.env.REACT_APP_IGDB_TOKEN
     },
     data: `fields artworks.*, cover.*, genres.*, name, platforms.*, screenshots, first_release_date, themes.name; limit 25; search "${queryKey[1]}";`
   })
