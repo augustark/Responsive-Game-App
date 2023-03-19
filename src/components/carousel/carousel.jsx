@@ -106,7 +106,7 @@ function Slide(props) {
         )
       } else return <span key={id}>{name}</span>
     })
-  console.log(videos)
+
   return (
     <div className='slide keen-slider__slide'>
       <img src={url} alt=''/>
@@ -121,7 +121,7 @@ function Slide(props) {
           {theme}
         </div>
         <div className='buttons'>
-          {videos[0] !== '' && (<button>
+          {videos !== undefined && (<button>
               <a 
                 className='yt-link'
                 href={`https://www.youtube.com/watch?v=${videos[0].video_id}`} 
