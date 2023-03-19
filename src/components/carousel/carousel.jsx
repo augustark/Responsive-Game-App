@@ -108,7 +108,7 @@ function Slide(props) {
     })
     
   if (videos[0].video_id) {
-    console.log(video_id);
+    console.log(videos[0].video_id);
   } else {
     console.log("It doesn't exist");
   }
@@ -128,15 +128,16 @@ function Slide(props) {
         </div>
         <div className='buttons'>
           <button>
-            <a 
-              className='yt-link'
-              href={`https://www.youtube.com/watch?v=${videos[0].video_id}`} 
-              target='_blank' 
-              rel='noreferrer'
-            >
-              <IoLogoYoutube/>
-              <span>Watch Trailer</span>
-            </a>
+            {videos[0].video_id &&
+              (<a 
+                className='yt-link'
+                href={`https://www.youtube.com/watch?v=${videos[0].video_id}`} 
+                target='_blank' 
+                rel='noreferrer'
+              >
+                <IoLogoYoutube/>
+                <span>Watch Trailer</span>
+              </a>)}
           </button>
           <button onClick={() => navigate(`/games/${id}`)}>
             Learn More
