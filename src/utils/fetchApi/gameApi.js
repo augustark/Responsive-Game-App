@@ -10,33 +10,33 @@ if (process.env.NODE_ENV === 'development') {
   PROXY = '/api'
 }
 
-const createAccessToken = async () => {
-  let ACCESS_TOKEN
+// const createAccessToken = async () => {
+//   let ACCESS_TOKEN
 
-  const getAccessToken = async () => {
-    const TWITCH_CLIENT_ID = process.env.REACT_APP_IGDB_CLIENT_ID
-    const TWITCH_CLIENT_SECRET = process.env.REACT_APP_IGDB_CLIENT_SECRET
+//   const getAccessToken = async () => {
+//     const TWITCH_CLIENT_ID = process.env.REACT_APP_IGDB_CLIENT_ID
+//     const TWITCH_CLIENT_SECRET = process.env.REACT_APP_IGDB_CLIENT_SECRET
   
-    const tokenRes = await axios({
-      url: `https://id.twitch.tv/oauth2/token?client_id=${TWITCH_CLIENT_ID}&client_secret=${TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
-      method: 'POST'
-    })
-    return await tokenRes.data 
-  }
+//     const tokenRes = await axios({
+//       url: `https://id.twitch.tv/oauth2/token?client_id=${TWITCH_CLIENT_ID}&client_secret=${TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
+//       method: 'POST'
+//     })
+//     return await tokenRes.data 
+//   }
 
-  if (!ACCESS_TOKEN) {
-    ACCESS_TOKEN = await getAccessToken()
-  }
+//   if (!ACCESS_TOKEN) {
+//     ACCESS_TOKEN = await getAccessToken()
+//   }
 
-  const expiration = new Date().setSeconds(ACCESS_TOKEN?.expires_in)
-  const today = new Date()
+//   const expiration = new Date().setSeconds(ACCESS_TOKEN?.expires_in)
+//   const today = new Date()
 
-  if (today === expiration) {
-    ACCESS_TOKEN = await getAccessToken()
-  }
+//   if (today === expiration) {
+//     ACCESS_TOKEN = await getAccessToken()
+//   }
 
-  return `Bearer ${ACCESS_TOKEN.access_token}`
-}
+//   return `Bearer ${ACCESS_TOKEN.access_token}`
+// }
 
 const fetchGames = async ({ queryKey }) => {
   const { body, page, filter, request, sort } = queryKey[1]
@@ -52,7 +52,7 @@ const fetchGames = async ({ queryKey }) => {
     method: 'POST', 
     headers: {
       "Client-ID": process.env.REACT_APP_IGDB_CLIENT_ID,
-      "Authorization": await createAccessToken()
+      "Authorization": process.env.REACT_APP_IGDB_TOKEN
     },
     data: `
       ${page ? customBody : body}
