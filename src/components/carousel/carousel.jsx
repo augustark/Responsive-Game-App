@@ -121,6 +121,17 @@ function Slide(props) {
           {theme}
         </div>
         <div className='buttons'>
+          {videos[0] !== '' && (<button>
+              <a 
+                className='yt-link'
+                href={`https://www.youtube.com/watch?v=${videos[0].video_id}`} 
+                target='_blank' 
+                rel='noreferrer'
+              >
+                <IoLogoYoutube/>
+                <span>Watch Trailer</span>
+              </a>
+          </button>)}
           <button onClick={() => navigate(`/games/${id}`)}>
             Learn More
           </button>
