@@ -124,7 +124,7 @@ function Slide(props) {
           <button>
             <a 
               className='yt-link'
-              href={`https://www.youtube.com/watch?v=${videos[0].video_id}`} 
+              href={`https://www.youtube.com/watch?v=${videos[0]?.video_id}`} 
               target='_blank' 
               rel='noreferrer'
             >
